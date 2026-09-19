@@ -1,0 +1,4249 @@
+/* ================================
+   DASAR
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    color: #111827;
+}
+
+
+/* ================================
+   CONTAINER
+================================ */
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* ================================
+   JUDUL
+================================ */
+
+h1 {
+    margin: 10px 0 5px;
+    font-size: 32px;
+}
+
+.subtitle {
+    margin: 0 0 20px;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+
+/* ================================
+   CARD
+================================ */
+
+.card {
+    background: #ffffff;
+    padding: 24px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+}
+
+
+/* ================================
+   LABEL
+================================ */
+
+label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* ================================
+   INPUT & SELECT
+================================ */
+
+input,
+select {
+    width: 100%;
+    height: 52px;
+    padding: 0 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #111827;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #111827;
+}
+
+
+/* ================================
+   HPP OTOMATIS
+================================ */
+
+#hpp {
+    background: #f3f4f6;
+    font-weight: 700;
+}
+
+
+/* ================================
+   BUTTON
+================================ */
+
+button {
+    width: 100%;
+    height: 54px;
+    margin-top: 24px;
+    border: none;
+    border-radius: 9px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+
+/* ================================
+   HASIL LAMA
+================================ */
+
+.hasil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 58px;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+    gap: 20px;
+}
+
+.hasil:last-child {
+    border-bottom: none;
+}
+
+.hasil span {
+    font-size: 16px;
+}
+
+.hasil strong {
+    font-size: 17px;
+    text-align: right;
+}
+
+
+/* ================================
+   HASIL KALKULATOR
+================================ */
+
+.hasil-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    min-height: 50px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background: #f8f9fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.hasil-row span {
+    font-size: 14px;
+    color: #555;
+}
+
+.hasil-row strong {
+    font-size: 15px;
+    text-align: right;
+}
+
+
+/* ================================
+   JUDUL SUB-BAGIAN HASIL
+================================ */
+
+.card h2[style*="margin-top"] {
+    padding-top: 5px;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* ================================
+   INPUT HARGA PASAR
+================================ */
+
+.hasil-row input {
+    width: 140px;
+    height: 42px;
+    padding: 0 10px;
+}
+
+
+/* ================================
+   STATUS PROFIT & POSISI HARGA
+================================ */
+
+#statusProfit,
+#statusHarga {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: #eee;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ================================
+   RESPONSIVE HP
+================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px 0;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .card h2 {
+        font-size: 22px;
+    }
+
+    input,
+    select {
+        height: 50px;
+        font-size: 16px;
+    }
+
+    button {
+        height: 52px;
+    }
+
+    .hasil-row {
+        min-height: 48px;
+        padding: 10px 11px;
+    }
+
+    .hasil-row span {
+        font-size: 13px;
+    }
+
+    .hasil-row strong {
+        font-size: 14px;
+    }
+
+    .hasil-row input {
+        width: 120px;
+        height: 40px;
+    }
+
+    #statusProfit,
+    #statusHarga {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+}
+
+/* =========================================
+   TAB UTAMA VARQA
+   ========================================= */
+
+.main-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.tab-btn {
+    appearance: none;
+    border: 1px solid #d0d0d0;
+    background: #f3f3f3;
+    color: #333;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.tab-btn:hover {
+    background: #e8e8e8;
+}
+
+.tab-btn.active {
+    background: #222;
+    color: #fff;
+    border-color: #222;
+}
+
+.tab-page {
+    display: none;
+}
+
+.menu-akun {
+    position: relative;
+}
+
+.btn-menu {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    color: #555 !important;
+    border: none !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    cursor: pointer;
+}
+
+.dropdown-akun {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    min-width: 100px;
+    z-index: 1000;
+}
+
+.dropdown-akun button {
+    width: 100% !important;
+    padding: 8px 12px !important;
+    background: white !important;
+    color: #333 !important;
+    border: none !important;
+    font-size: 13px !important;
+    cursor: pointer;
+}
+
+/* =========================================
+   HOME MENU VARQA
+   MINIMALIS & MODERN
+   ========================================= */
+
+#homePage {
+    display: block;
+}
+
+/* GRID MENU */
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 30px auto;
+}
+
+/* KARTU MENU */
+.home-grid button {
+    position: relative;
+
+    width: 100%;
+    height: 125px;
+
+    margin: 0;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 20px;
+
+    background: #ffffff;
+    color: #111827;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.05);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+/* IKON */
+.home-grid button span {
+    flex-shrink: 0;
+
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    background: #f3f4f6;
+    border-radius: 14px;
+}
+
+/* NAMA MENU */
+.home-grid button strong {
+    font-size: 18px;
+    font-weight: 700;
+
+    letter-spacing: -0.2px;
+}
+
+/* PANAH */
+.home-grid button::after {
+    content: "›";
+
+    position: absolute;
+    right: 22px;
+
+    font-size: 30px;
+    font-weight: 400;
+
+    color: #9ca3af;
+}
+
+/* HOVER */
+.home-grid button:hover {
+    background: #fafafa;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ACTIVE */
+.home-grid button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   INFO TOKO AKTIF
+   ========================================= */
+
+#infoTokoAktif {
+    margin: 10px 0 24px !important;
+
+    text-align: center;
+
+    font-size: 15px !important;
+    color: #6b7280 !important;
+}
+
+
+/* =========================================
+   HEADER VARQA
+   ========================================= */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 46px;
+    margin-bottom: 10px;
+}
+
+.app-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 46px;
+}
+
+.app-header-left > strong {
+    display: flex;
+    align-items: center;
+    height: 46px;
+    flex-shrink: 0;
+}
+
+.app-header strong {
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================
+   RESPONSIVE HP
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .home-grid {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        margin-top: 24px;
+    }
+
+    .home-grid button {
+        height: 92px;
+
+        padding: 14px 16px;
+
+        gap: 16px;
+
+        border-radius: 14px;
+    }
+
+    .home-grid button span {
+        width: 52px;
+        height: 52px;
+
+        font-size: 25px;
+
+        border-radius: 12px;
+    }
+
+    .home-grid button strong {
+        font-size: 16px;
+    }
+
+    .home-grid button::after {
+        right: 18px;
+        font-size: 26px;
+    }
+}
+
+.main-tabs {
+    display: none;
+}
+
+.tab-page {
+    display: none;
+}
+
+.btn-kembali-home {
+    width: auto !important;
+    margin: 0 0 20px 0 !important;
+    padding: 8px 14px !important;
+    background: white !important;
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    cursor: pointer;
+}
+
+/* =========================================================
+   MENU PENJUALAN — FIX SIMETRIS
+   ========================================================= */
+#tab-penjualan > section.card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#menuPenjualan {
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr !important;
+
+    gap: 16px !important;
+
+    width: 100% !important;
+    max-width: 900px !important;
+
+    margin: 20px auto 0 !important;
+
+    align-items: stretch !important;
+}
+
+/* SEMUA KARTU MENU PENJUALAN */
+#menuPenjualan > button {
+    position: relative !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    height: 94px !important;
+    min-height: 94px !important;
+
+    margin: 0 !important;
+    padding: 14px !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    background: #ffffff !important;
+    border: 1px solid #e7eaf0 !important;
+    border-radius: 12px !important;
+
+    color: #111827 !important;
+
+    box-shadow: 0 2px 7px rgba(15, 23, 42, .035) !important;
+
+    text-align: left !important;
+}
+
+
+/* IKON */
+#menuPenjualan > button .menu-icon {
+    display: inline-flex !important;
+
+    flex: 0 0 42px !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 42px !important;
+    height: 42px !important;
+
+    margin-right: 12px !important;
+
+    border-radius: 10px !important;
+
+    font-size: 22px !important;
+    line-height: 1 !important;
+}
+
+
+/* WARNA IKON */
+#menuPenjualan > button.accent-orange .menu-icon {
+    background: #fff7ed !important;
+    color: #f59e0b !important;
+}
+
+#menuPenjualan > button.accent-green .menu-icon {
+    background: #ecfdf5 !important;
+    color: #10b981 !important;
+}
+
+#menuPenjualan > button.accent-blue .menu-icon {
+    background: #eff6ff !important;
+    color: #3b82f6 !important;
+}
+
+#menuPenjualan > button.accent-purple .menu-icon {
+    background: #f5f3ff !important;
+    color: #8b5cf6 !important;
+}
+
+
+/* TEKS */
+#menuPenjualan > button .menu-copy {
+    display: flex !important;
+
+    flex: 1 !important;
+    min-width: 0 !important;
+
+    flex-direction: column !important;
+
+    gap: 4px !important;
+}
+
+
+/* JUDUL */
+#menuPenjualan > button .menu-copy strong {
+    display: block !important;
+
+    font-size: 14px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.2 !important;
+}
+
+
+/* DESKRIPSI */
+#menuPenjualan > button .menu-copy small {
+    display: block !important;
+
+    overflow: hidden !important;
+
+    color: #7b8494 !important;
+
+    font-size: 11px !important;
+    font-weight: 500 !important;
+
+    line-height: 1.3 !important;
+
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+
+/* PANAH */
+#menuPenjualan > button .menu-arrow {
+    display: inline-flex !important;
+
+    color: #a0a8b6 !important;
+
+    font-size: 22px !important;
+    font-weight: 300 !important;
+}
+
+
+/* HOVER */
+#menuPenjualan > button:hover {
+    background: #ffffff !important;
+    transform: translateY(-2px) !important;
+
+    border-color: #d4d9e2 !important;
+
+    box-shadow: 0 8px 18px rgba(15, 23, 42, .08) !important;
+
+    opacity: 1 !important;
+}
+
+
+/* HOVER */
+#menuPenjualan > button:hover {
+    background: #fafafa !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08) !important;
+}
+
+
+/* =========================================================
+   HP
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #menuPenjualan {
+        grid-template-columns: 1fr !important;
+
+        gap: 12px !important;
+    }
+
+    #menuPenjualan > button {
+        height: 90px !important;
+    }
+}   
+
+/* =========================================================
+   VARQA — PENJUALAN / LISTING
+   STYLE MINIMALIS
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   TOMBOL KEMBALI
+   --------------------------------------------------------- */
+
+#tab-listing > button:first-child,
+#tab-order > section > button:first-child,
+#tab-rekap > section > button:first-child,
+#tab-export > section > button:first-child {
+    width: auto !important;
+    min-width: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 14px !important;
+    margin: 0 0 18px 0 !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    background: #f3f4f6 !important;
+    color: #374151 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   JUDUL LISTING
+   --------------------------------------------------------- */
+
+#menuPenjualanListing h2 {
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+
+#menuPenjualanListing > p {
+    margin-top: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   BARIS SEARCH + TAMBAH
+   --------------------------------------------------------- */
+
+#isiPenjualanListing > div:first-child {
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+
+/* SEARCH */
+
+#cariListing {
+    height: 44px !important;
+    box-sizing: border-box;
+
+    border: 1px solid #d1d5db !important;
+    border-radius: 9px !important;
+
+    padding: 0 14px !important;
+
+    font-size: 14px !important;
+}
+
+
+/* TOMBOL TAMBAH LISTING */
+
+#isiPenjualanListing > div:first-child > button {
+    width: auto !important;
+    min-width: 0 !important;
+
+    height: 44px !important;
+
+    padding: 0 17px !important;
+
+    border-radius: 9px !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    white-space: nowrap;
+}
+
+
+/* ---------------------------------------------------------
+   JUMLAH LISTING
+   --------------------------------------------------------- */
+
+#infoJumlahListing {
+    color: #374151 !important;
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+}
+
+
+/* ---------------------------------------------------------
+   KARTU LISTING
+   --------------------------------------------------------- */
+
+#daftarListing > div {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+
+    padding: 16px !important;
+    margin-bottom: 10px !important;
+
+    background: #ffffff !important;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.04) !important;
+}
+
+
+/* ---------------------------------------------------------
+   TOMBOL DALAM KARTU LISTING
+   --------------------------------------------------------- */
+
+#daftarListing button {
+    width: auto !important;
+    min-width: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 13px !important;
+    margin: 8px 6px 0 0 !important;
+
+    border-radius: 7px !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* KELOLA PRODUK */
+
+#daftarListing button:nth-of-type(1) {
+    background: #111827 !important;
+    color: #ffffff !important;
+}
+
+
+/* EDIT */
+
+#daftarListing button:nth-of-type(2) {
+    background: #f3f4f6 !important;
+    color: #374151 !important;
+}
+
+
+/* HAPUS */
+
+#daftarListing button:nth-of-type(3) {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+}
+
+
+/* ---------------------------------------------------------
+   FORM LISTING
+   --------------------------------------------------------- */
+
+#formListing,
+#formProdukListing {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+
+    background: #fafafa !important;
+}
+
+
+/* INPUT FORM */
+
+#formListing input,
+#formListing textarea,
+#formProdukListing input,
+#formProdukListing textarea,
+#formProdukListing select {
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+
+    font-size: 14px !important;
+}
+
+
+/* ---------------------------------------------------------
+   TOMBOL FORM
+   --------------------------------------------------------- */
+
+#formListing button,
+#formProdukListing button {
+    width: auto !important;
+    min-width: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 14px !important;
+
+    border-radius: 7px !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   PANEL KELOLA PRODUK
+   --------------------------------------------------------- */
+
+#panelKelolaListing {
+    border-top: 1px solid #e5e7eb !important;
+}
+
+
+/* Tombol Tambah Produk */
+
+#panelKelolaListing > button {
+    width: auto !important;
+    min-width: 0 !important;
+
+    padding: 9px 14px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+}
+
+
+/* ---------------------------------------------------------
+   PRODUK DI DALAM LISTING
+   --------------------------------------------------------- */
+
+#daftarProdukListing > div {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+
+    padding: 14px !important;
+    margin-bottom: 9px !important;
+
+    background: #ffffff !important;
+}
+
+
+/* Tombol Edit/Hapus Produk */
+
+#daftarProdukListing button {
+    width: auto !important;
+    min-width: 0 !important;
+
+    padding: 7px 12px !important;
+
+    margin: 7px 6px 0 0 !important;
+
+    border-radius: 7px !important;
+
+    font-size: 12px !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    #isiPenjualanListing > div:first-child {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    #isiPenjualanListing > div:first-child > button {
+        width: 100% !important;
+    }
+
+    #daftarListing button {
+        padding: 8px 11px !important;
+        font-size: 11px !important;
+    }
+
+}
+
+/* =========================================================
+   VARQA — GLOBAL BUTTON STYLE
+   MINIMALIS & RAPI
+   ========================================================= */
+
+/* Semua tombol */
+button {
+    width: auto;
+    min-width: 0;
+    height: 40px;
+
+    margin-top: 10px;
+
+    padding: 0 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #111827;
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.1s ease;
+}
+
+
+/* Hover */
+button:hover {
+    opacity: 0.88;
+}
+
+
+/* Saat ditekan */
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================================
+   TOMBOL HOME & BACK
+   SERAGAM
+   ========================================================= */
+
+.btn-kembali,
+.btn-home,
+.btn-kembali-home,
+button[onclick*="home"],
+button[onclick*="Home"] {
+
+    width: 46px !important;
+    min-width: 46px !important;
+    height: 46px !important;
+
+    padding: 0 !important;
+    margin: 0 8px 20px 0 !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+
+    background: #ffffff !important;
+    color: #111827 !important;
+
+    font-size: 20px !important;
+    font-weight: 600 !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.1s ease;
+}
+
+
+/* Hover */
+.btn-kembali:hover,
+.btn-home:hover,
+.btn-kembali-home:hover,
+button[onclick*="home"]:hover,
+button[onclick*="Home"]:hover {
+
+    background: #f9fafb !important;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.08) !important;
+
+    opacity: 1 !important;
+}
+
+
+/* Saat ditekan */
+.btn-kembali:active,
+.btn-home:active,
+.btn-kembali-home:active,
+button[onclick*="home"]:active,
+button[onclick*="Home"]:active {
+
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   TOMBOL AKSI KECIL
+   EDIT / HAPUS / BATAL
+   ========================================================= */
+
+button[onclick*="edit"],
+button[onclick*="Edit"],
+button[onclick*="batal"],
+button[onclick*="Batal"],
+button[onclick*="hapus"],
+button[onclick*="Hapus"] {
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    height: 36px !important;
+
+    padding: 0 12px !important;
+
+    margin-top: 8px !important;
+
+    font-size: 12px !important;
+
+}
+
+
+/* Edit */
+button[onclick*="edit"],
+button[onclick*="Edit"] {
+
+    background: #f3f4f6 !important;
+    color: #374151 !important;
+
+}
+
+
+/* Batal */
+button[onclick*="batal"],
+button[onclick*="Batal"] {
+
+    background: #f3f4f6 !important;
+    color: #374151 !important;
+
+}
+
+
+/* Hapus */
+button[onclick*="hapus"],
+button[onclick*="Hapus"] {
+
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+
+}
+
+
+/* =========================================================
+   TOMBOL SIMPAN
+   ========================================================= */
+
+button[onclick*="simpan"],
+button[onclick*="Simpan"] {
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    height: 40px !important;
+
+    padding: 0 16px !important;
+
+    font-size: 12px !important;
+
+}
+
+
+/* =========================================================
+   TOMBOL TAMBAH
+   ========================================================= */
+
+button[onclick*="tambah"],
+button[onclick*="Tambah"],
+button[onclick*="tampilkanForm"] {
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    height: 40px !important;
+
+    padding: 0 15px !important;
+
+    font-size: 12px !important;
+
+}
+
+
+/* =========================================================
+   TOMBOL EXPORT / IMPORT
+   ========================================================= */
+
+button[onclick*="export"],
+button[onclick*="Export"],
+button[onclick*="import"],
+button[onclick*="Import"] {
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    height: 38px !important;
+
+    padding: 0 13px !important;
+
+    font-size: 12px !important;
+
+}
+
+
+/* =========================================================
+   TOMBOL DI DALAM FORM
+   ========================================================= */
+
+.card button {
+    max-width: fit-content;
+}
+
+
+/* =========================================================
+   KELOMPOK TOMBOL
+   ========================================================= */
+
+button + button {
+    margin-left: 6px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    button {
+        height: 38px;
+        padding: 0 12px;
+        font-size: 12px;
+    }
+
+    button + button {
+        margin-left: 4px;
+    }
+
+}
+
+/* ============================================================
+   PENJUALAN - LISTING
+   ============================================================ */
+
+#menuPenjualanListing button:not(:first-child) {
+    width: auto;
+    min-width: 0;
+    height: 38px;
+    margin: 6px 4px 0 0;
+    padding: 0 14px;
+    border: none;
+    border-radius: 7px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#menuPenjualanListing button:hover {
+    opacity: 0.88;
+}
+
+#menuPenjualanListing button:active {
+    transform: scale(0.98);
+}
+
+
+/* ------------------------------------------------------------
+   CARD LISTING
+   ------------------------------------------------------------ */
+
+#daftarListing > div {
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   CARD PRODUK DALAM LISTING
+   ------------------------------------------------------------ */
+
+#daftarProdukListing > div {
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   FORM LISTING
+   ------------------------------------------------------------ */
+
+#formListing,
+#formProdukListing {
+    box-sizing: border-box;
+}
+
+#formListing input,
+#formListing textarea,
+#formProdukListing input,
+#formProdukListing textarea,
+#formProdukListing select {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    padding: 10px 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 14px;
+    background: #ffffff;
+    color: #111827;
+}
+
+#formListing input:focus,
+#formListing textarea:focus,
+#formProdukListing input:focus,
+#formProdukListing textarea:focus,
+#formProdukListing select:focus {
+    outline: none;
+    border-color: #6b7280;
+}
+
+
+/* ------------------------------------------------------------
+   TOMBOL BATAL
+   ------------------------------------------------------------ */
+
+#formListing button[type="button"],
+#formProdukListing button[type="button"] {
+    width: auto;
+}
+
+
+/* ------------------------------------------------------------
+   TOMBOL TAMBAH
+   ------------------------------------------------------------ */
+
+#menuPenjualanListing > button:not(:first-child) {
+    width: auto;
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+
+    #menuPenjualanListing button:not(:first-child) {
+        font-size: 12px;
+        padding: 0 11px;
+    }
+
+    #daftarListing > div,
+    #daftarProdukListing > div {
+        padding: 12px !important;
+    }
+
+}
+
+/* =========================================================
+   VARQA - MASTER PRODUK
+   STYLE SENADA HOME & PENJUALAN
+   ========================================================= */
+
+/* AREA PRODUK */
+#tab-produk {
+    width: 100%;
+}
+
+
+/* HILANGKAN CARD BESAR */
+#tab-produk > section.card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    padding: 22px !important;
+    margin: 0 !important;
+}
+
+
+/* JUDUL MASTER PRODUK */
+#tab-produk > section.card {
+    position: relative;
+}
+
+#tab-produk .card h2 {
+    margin: 0 0 24px 0 !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.6px;
+    line-height: 1.2;
+}
+
+
+/* PANEL */
+#tab-produk #panelMasterProduk {
+    position: static !important;
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+#tab-produk #cariMasterProduk {
+    width: 100% !important;
+    height: 48px !important;
+
+    margin: 0 0 10px 0 !important;
+
+    padding: 0 14px !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+
+    font-size: 14px !important;
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+#tab-produk #filterKategoriMasterProduk,
+#tab-produk #filterStatusMasterProduk {
+    width: 100% !important;
+    height: 48px !important;
+
+    margin: 0 0 10px 0 !important;
+
+    padding: 0 14px !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+
+    font-size: 14px !important;
+}
+
+
+/* =========================================================
+   TAMBAH PRODUK
+   ========================================================= */
+
+/* TOMBOL TAMBAH PRODUK */
+#tab-produk #panelMasterProduk > button {
+    position: absolute !important;
+    top: 5px !important;
+    right: 22px !important;
+
+    width: auto !important;
+    min-width: 0 !important;
+    height: 42px !important;
+
+    margin: 0 !important;
+    padding: 0 18px !important;
+
+    background: #4f46e5 !important;
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 10px !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   DAFTAR PRODUK
+   ========================================================= */
+
+#tab-produk #infoJumlahMasterProduk {
+    margin: 0 0 10px 0 !important;
+
+    color: #6b7280 !important;
+
+    font-size: 13px !important;
+}
+
+
+#tab-produk #daftarMasterProduk {
+    margin-top: 10px !important;
+}
+
+
+/* =========================================================
+   FORM TAMBAH / EDIT
+   ========================================================= */
+
+#tab-produk #formMasterProduk {
+    background: #ffffff !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 14px !important;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05) !important;
+
+    padding: 18px !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #tab-produk .card h2 {
+        font-size: 22px !important;
+    }
+
+    #tab-produk #cariMasterProduk,
+    #tab-produk #filterKategoriMasterProduk,
+    #tab-produk #filterStatusMasterProduk {
+        height: 46px !important;
+    }
+}
+
+/* =========================================================
+   HALAMAN LISTING TERPISAH
+   ========================================================= */
+
+#tab-listing {
+    width: 100%;
+}
+
+#tab-listing > .card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#tab-listing #menuPenjualanListing {
+    display: block;
+    margin-top: 0 !important;
+}
+
+#tab-listing .btn-kembali-home {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 0 20px 0 !important;
+    padding: 8px 14px !important;
+}
+
+/* =========================================================
+   TOMBOL HOME & BACK — LISTING
+   SAMAKAN DENGAN TAB PENJUALAN
+   ========================================================= */
+
+#tab-listing .btn-kembali-home,
+#tab-listing > button[onclick="kembaliKePenjualan()"] {
+
+    width: 46px !important;
+    min-width: 46px !important;
+    max-width: 46px !important;
+
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+
+    padding: 0 !important;
+    margin: 0 8px 20px 0 !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+
+    background: #ffffff !important;
+    color: #111827 !important;
+
+    font-size: 20px !important;
+    font-weight: 600 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* =========================================================
+   MASTER PRODUK — TOMBOL MINIMALIS
+   ========================================================= */
+
+#tab-produk button {
+    min-width: 0 !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 14px !important;
+    border: 1px solid transparent !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+}
+
+/* Aksi utama: tambah dan simpan */
+#tab-produk #panelMasterProduk > button,
+#tab-produk button[onclick*="simpanMasterProduk"] {
+    background: #111827 !important;
+    color: #ffffff !important;
+}
+
+/* Aksi netral: edit dan batal */
+#tab-produk button[onclick*="editMasterProduk"],
+#tab-produk button[onclick*="batalMasterProduk"] {
+    background: #ffffff !important;
+    border-color: #d1d5db !important;
+    color: #374151 !important;
+}
+
+/* Aksi destruktif: hapus */
+#tab-produk button[onclick*="hapusMasterProduk"] {
+    background: #fff7f7 !important;
+    border-color: #fecaca !important;
+    color: #dc2626 !important;
+}
+
+#tab-produk .master-produk-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+#tab-produk .master-produk-actions button {
+    width: auto !important;
+    min-width: 112px !important;
+}
+
+#tab-produk .master-produk-actions button:first-child {
+    min-width: 160px !important;
+}
+
+#tab-produk #daftarMasterProduk button {
+    flex: 1 1 0 !important;
+}
+
+#tab-produk button:hover {
+    opacity: 1 !important;
+    filter: brightness(0.97);
+}
+
+#tab-produk button:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.35) !important;
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    #tab-produk button {
+        height: 38px !important;
+        padding: 0 12px !important;
+        font-size: 12px !important;
+    }
+
+    #tab-produk .master-produk-actions {
+        gap: 8px;
+        margin-top: 14px;
+        padding-top: 14px;
+    }
+
+    #tab-produk .master-produk-actions button,
+    #tab-produk .master-produk-actions button:first-child {
+        flex: 1 1 0;
+        min-width: 0 !important;
+    }
+}
+
+/* Tombol Home Master Produk mengikuti ukuran dan posisi tab Penjualan. */
+#tab-produk > .btn-kembali-home {
+    width: 46px !important;
+    min-width: 46px !important;
+    max-width: 46px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    margin: 0 8px 20px 0 !important;
+    padding: 0 !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* =========================================================
+   HOME — DASHBOARD OPERASIONAL
+   ========================================================= */
+
+#homePage {
+    width: min(100%, 1040px);
+    margin: 0 auto;
+    padding: 12px 4px 40px;
+}
+
+#homePage .home-hero {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin: 8px 0 24px;
+}
+
+#homePage .home-eyebrow {
+    margin: 0 0 7px;
+    color: #4f46e5;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .11em;
+}
+
+#homePage .home-hero h1 {
+    margin: 0;
+    color: #111827;
+    font-size: clamp(25px, 4vw, 34px);
+    letter-spacing: -.045em;
+}
+
+#homePage .home-description {
+    margin: 8px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+#homePage .home-store {
+    width: auto;
+    margin: 0 !important;
+    padding: 9px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #475569 !important;
+    font-size: 12px !important;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#homePage .home-quick-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 0 0 30px;
+    padding: 12px 14px;
+    border: 1px solid #e7eaf0;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 2px 7px rgba(15, 23, 42, .03);
+}
+
+#homePage .quick-actions-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+#homePage .quick-actions-heading strong {
+    color: #1f2937;
+    font-size: 13px;
+}
+
+#homePage .quick-actions-heading span {
+    color: #8a94a4;
+    font-size: 11px;
+}
+
+#homePage .quick-actions-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+#homePage .quick-action {
+    width: auto;
+    height: 40px;
+    margin: 0;
+    padding: 0 14px;
+    border: 1px solid #dbe0e8;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #374151;
+    box-shadow: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#homePage .quick-action span {
+    margin-right: 4px;
+    font-size: 16px;
+}
+
+#homePage .quick-action-primary {
+    border-color: #4f46e5;
+    background: #4f46e5;
+    color: #ffffff;
+}
+
+#homePage .home-section {
+    margin-top: 26px;
+}
+
+#homePage .home-section h2 {
+    margin: 0 0 10px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .02em;
+}
+
+#homePage .home-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+#homePage .home-menu-card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 94px;
+    margin: 0;
+    padding: 14px;
+    border: 1px solid #e7eaf0;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #111827;
+    box-shadow: 0 2px 7px rgba(15, 23, 42, .035);
+    text-align: left;
+}
+
+#homePage .home-menu-card:hover {
+    transform: translateY(-2px);
+    border-color: #d4d9e2;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, .08);
+    opacity: 1;
+}
+
+#homePage .menu-icon {
+    display: inline-flex;
+    flex: 0 0 42px;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-right: 12px;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+#homePage .menu-copy {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#homePage .menu-copy strong {
+    font-size: 14px;
+}
+
+#homePage .menu-copy small {
+    overflow: hidden;
+    color: #7b8494;
+    font-size: 11px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#homePage .menu-arrow {
+    color: #a0a8b6;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+#homePage .accent-orange .menu-icon { background: #fff7ed; color: #f59e0b; }
+#homePage .accent-green .menu-icon { background: #ecfdf5; color: #10b981; }
+#homePage .accent-pink .menu-icon { background: #fdf2f8; color: #ec4899; }
+#homePage .accent-blue .menu-icon { background: #eff6ff; color: #3b82f6; }
+#homePage .accent-emerald .menu-icon { background: #ecfdf5; color: #059669; }
+#homePage .accent-purple .menu-icon { background: #f5f3ff; color: #8b5cf6; }
+#homePage .accent-slate .menu-icon { background: #f1f5f9; color: #64748b; }
+
+@media (max-width: 760px) {
+    #homePage .home-menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+    #homePage { padding: 6px 0 28px; }
+    #homePage .home-hero { align-items: flex-start; flex-direction: column; gap: 14px; }
+    #homePage .home-store { white-space: normal; }
+    #homePage .home-quick-actions { align-items: stretch; flex-direction: column; gap: 12px; }
+    #homePage .quick-actions-buttons { display: grid; grid-template-columns: 1fr 1fr; }
+    #homePage .quick-action:last-child { grid-column: span 2; }
+    #homePage .quick-action { width: 100%; }
+    #homePage .home-menu-grid { grid-template-columns: 1fr; gap: 9px; }
+    #homePage .home-menu-card { min-height: 78px; }
+}
+
+/* =========================================================
+   PENGATURAN — FORM BIAYA
+   ========================================================= */
+
+#tab-pengaturan {
+    width: min(100%, 760px);
+    margin: 0 auto;
+}
+
+#tab-pengaturan .settings-card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 8px;
+    margin: 0;
+    padding: 26px !important;
+    border: 1px solid #e7eaf0 !important;
+    border-radius: 16px !important;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, .06) !important;
+}
+
+#tab-pengaturan .settings-card h2 {
+    grid-column: 1 / -1;
+    margin: 0 0 4px;
+    color: #111827;
+    font-size: 24px;
+    letter-spacing: -.03em;
+}
+
+#tab-pengaturan .settings-card h2::after {
+    content: "Biaya default untuk kalkulator";
+    display: block;
+    margin: 7px 0 18px 36px;
+    color: #7b8494;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+#tab-pengaturan .settings-card label {
+    display: block;
+    margin: 0;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#tab-pengaturan .settings-card label:nth-of-type(1) { grid-column: 1; grid-row: 2; }
+#tab-pengaturan #settingPotonganShopee { grid-column: 1; grid-row: 3; }
+#tab-pengaturan .settings-card label:nth-of-type(2) { grid-column: 2; grid-row: 2; }
+#tab-pengaturan #settingBiayaProses { grid-column: 2; grid-row: 3; }
+#tab-pengaturan .settings-card label:nth-of-type(3) { grid-column: 1; grid-row: 4; margin-top: 10px; }
+#tab-pengaturan #settingPacking { grid-column: 1; grid-row: 5; }
+#tab-pengaturan .settings-card label:nth-of-type(4) { grid-column: 2; grid-row: 4; margin-top: 10px; }
+#tab-pengaturan #settingRiskReserve { grid-column: 2; grid-row: 5; }
+
+#tab-pengaturan .settings-card input {
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0 13px;
+    border: 1px solid #dfe3ea;
+    border-radius: 9px;
+    background: #f8fafc;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#tab-pengaturan .settings-card > div:last-child {
+    display: flex !important;
+    grid-column: 1 / -1;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 18px !important;
+    padding-top: 16px;
+    border-top: 1px solid #e7eaf0;
+}
+
+#tab-pengaturan .settings-card > div:last-child::before {
+    content: "Ubah nilai jika biaya toko berubah.";
+    color: #7b8494;
+    font-size: 12px;
+}
+
+#tab-pengaturan #btnEditPengaturan,
+#tab-pengaturan #btnSimpanPengaturan {
+    width: auto !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 15px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+}
+
+#tab-pengaturan #btnEditPengaturan {
+    border: 1px solid #dbe0e8 !important;
+    background: #ffffff !important;
+    color: #374151 !important;
+}
+
+#tab-pengaturan #btnSimpanPengaturan {
+    border: 1px solid #4f46e5 !important;
+    background: #4f46e5 !important;
+    color: #ffffff !important;
+}
+
+@media (max-width: 600px) {
+    #tab-pengaturan .settings-card {
+        grid-template-columns: 1fr;
+        padding: 20px !important;
+    }
+
+    #tab-pengaturan .settings-card label,
+    #tab-pengaturan .settings-card input {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
+    #tab-pengaturan .settings-card label:nth-of-type(3),
+    #tab-pengaturan .settings-card label:nth-of-type(4) { margin-top: 8px; }
+
+    #tab-pengaturan .settings-card > div:last-child {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    #tab-pengaturan #btnEditPengaturan,
+    #tab-pengaturan #btnSimpanPengaturan { width: 100% !important; }
+}
+
+/* =========================================================
+   VARQA — ORDER
+   ========================================================= */
+
+.order-page {
+    margin-top: 18px;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.order-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.order-page-header h3 {
+    margin: 0;
+    color: #111827;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.order-page-header p {
+    margin: 5px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.order-btn-primary,
+.order-btn-secondary {
+    width: auto !important;
+    min-width: 0 !important;
+    border-radius: 10px !important;
+    cursor: pointer;
+    font-weight: 700 !important;
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        background .15s ease;
+}
+
+.order-btn-primary {
+    padding: 11px 16px !important;
+    border: 1px solid #111827 !important;
+    background: #111827 !important;
+    color: #fff !important;
+}
+
+.order-btn-primary:hover {
+    background: #1f2937 !important;
+    box-shadow: 0 5px 14px rgba(17, 24, 39, .14);
+}
+
+.order-btn-primary:active,
+.order-btn-secondary:active {
+    transform: translateY(1px);
+}
+
+.order-btn-secondary {
+    padding: 10px 15px !important;
+    border: 1px solid #e5e7eb !important;
+    background: #f8fafc !important;
+    color: #374151 !important;
+}
+
+.order-btn-secondary:hover {
+    background: #f1f5f9 !important;
+}
+
+.order-btn-small {
+    padding: 9px 13px !important;
+    font-size: 13px !important;
+}
+
+
+/* =========================
+   FILTER
+   ========================= */
+
+.order-filter-bar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+    margin-bottom: 18px;
+    padding: 18px;
+    border: 1px solid #e7eaf0;
+    border-radius: 14px;
+    background: #fafbfc;
+}
+
+.order-filter-group {
+    min-width: 0;
+}
+
+.order-filter-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.order-filter-bar input,
+.order-filter-bar select,
+.order-form-card input,
+.order-form-card textarea,
+.order-form-card select {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #dfe3ea;
+    border-radius: 10px;
+    background: #fff;
+    color: #111827;
+    font: inherit;
+    outline: none;
+    transition:
+        border-color .15s ease,
+        box-shadow .15s ease;
+}
+
+.order-filter-bar input:focus,
+.order-filter-bar select:focus,
+.order-form-card input:focus,
+.order-form-card textarea:focus,
+.order-form-card select:focus {
+    border-color: #9ca3af;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, .05);
+}
+
+.order-filter-action {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/* =========================
+   FORM CARD
+   ========================= */
+
+.order-form-card {
+    margin-bottom: 14px;
+    padding: 18px;
+    border: 1px solid #e7eaf0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, .035);
+}
+
+.order-form-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 14px;
+}
+
+.order-form-card label > span {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.order-form-card small {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.order-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+}
+
+.order-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.order-section-header h3 {
+    margin: 0;
+}
+
+
+/* =========================
+   ITEM ORDER
+   ========================= */
+
+.order-item-box {
+    margin-top: 14px;
+    padding: 15px;
+    border: 1px solid #e7eaf0;
+    border-radius: 12px;
+    background: #fafbfc;
+}
+
+.order-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.order-remove-item {
+    border: 0;
+    background: transparent;
+    color: #b91c1c;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   SEARCH PRODUK
+   ========================= */
+
+.order-search-results {
+    margin-top: -7px;
+    margin-bottom: 12px;
+}
+
+.order-search-result {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-top: 0;
+    background: #fff;
+    color: #111827;
+    text-align: left;
+    cursor: pointer;
+}
+
+.order-search-result:first-child {
+    border-top: 1px solid #e5e7eb;
+    border-radius: 10px 10px 0 0;
+}
+
+.order-search-result:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.order-search-result:hover {
+    background: #f8fafc;
+}
+
+.order-search-result small {
+    margin-top: 4px;
+    color: #6b7280;
+}
+
+.order-search-empty {
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fff;
+    color: #6b7280;
+}
+
+
+/* =========================
+   LISTING CHOICE
+   ========================= */
+
+.order-listing-choice {
+    margin-top: 12px;
+}
+
+.order-listing-title {
+    margin-bottom: 10px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.order-listing-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.order-listing-option {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dfe3ea;
+    border-radius: 10px;
+    background: #fff;
+    text-align: left;
+    cursor: pointer;
+}
+
+.order-listing-option:hover {
+    border-color: #9ca3af;
+    background: #f8fafc;
+}
+
+.order-listing-option span {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.order-selected-listing {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0 14px;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.order-selected-listing div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.order-selected-listing span {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* =========================
+   EMPTY
+   ========================= */
+
+.order-empty {
+    padding: 28px 15px;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+    color: #6b7280;
+    text-align: center;
+}
+
+
+/* =========================
+   RIWAYAT ORDER
+   ========================= */
+
+.order-history-card {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 15px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+    background: #fff;
+    color: #111827;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, .025);
+    transition:
+        border-color .15s ease,
+        box-shadow .15s ease,
+        transform .15s ease;
+}
+
+.order-history-card:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, .07);
+    transform: translateY(-1px);
+}
+
+.order-history-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.order-history-top strong {
+    color: #111827;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.order-history-date {
+    margin-top: 9px;
+    color: #4b5563;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.order-history-resi {
+    margin-top: 4px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.order-history-summary {
+    margin-top: 9px;
+    padding-top: 9px;
+    border-top: 1px solid #f0f1f3;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.order-status-selesai {
+    flex-shrink: 0;
+    padding: 6px 10px;
+    border: 1px solid #d7f0df;
+    border-radius: 999px;
+    background: #f3fbf5;
+    color: #15803d;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   DETAIL ORDER
+   ========================= */
+
+.order-detail-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.order-detail-meta div {
+    padding: 12px;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.order-detail-meta span {
+    display: block;
+    margin-bottom: 5px;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.order-detail-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.order-detail-item:last-child {
+    border-bottom: 0;
+}
+
+.order-detail-item > strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #111827;
+    font-size: 15px;
+}
+
+.order-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .order-page-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .order-filter-bar,
+    .order-form-grid,
+    .order-detail-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .order-filter-action {
+        align-items: stretch;
+    }
+
+    .order-filter-action button {
+        width: 100% !important;
+    }
+
+    .order-selected-listing {
+        grid-template-columns: 1fr;
+    }
+
+    .order-section-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .order-section-header button {
+        width: 100% !important;
+    }
+
+    .order-form-actions {
+        flex-direction: column;
+    }
+
+    .order-form-actions button {
+        width: 100% !important;
+    }
+}
+
+/* =========================================================
+   FIX ORDER HISTORY CARD
+   ========================================================= */
+
+.order-history-card {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 0 10px 0 !important;
+    padding: 15px 16px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: visible !important;
+}
+
+.order-history-card + .order-history-card {
+    margin-left: 0 !important;
+}
+
+
+
+.order-btn-danger {
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    padding: 10px 15px !important;
+
+    border: 1px solid #fecaca !important;
+    border-radius: 10px !important;
+
+    background: #fff !important;
+    color: #b91c1c !important;
+
+    font-size: 13px !important;
+    font-weight: 700 !important;
+}
+
+.order-btn-danger:hover {
+    background: #fef2f2 !important;
+    border-color: #fca5a5 !important;
+}
+
+/* =========================================================
+   VARQA — REKAP PENJUALAN
+   ========================================================= */
+
+.rekap-page {
+    margin-top: 18px;
+}
+
+.rekap-filter-bar,
+.rekap-table-card {
+    padding: 18px;
+    border: 1px solid #e7eaf0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, .035);
+}
+
+.rekap-filter-bar {
+    margin-bottom: 18px;
+    background: #fafbfc;
+}
+
+.rekap-period-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.rekap-period-button {
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 9px 13px !important;
+    border: 1px solid #dfe3ea !important;
+    border-radius: 9px !important;
+    background: #fff !important;
+    color: #4b5563 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    cursor: pointer;
+}
+
+.rekap-period-button.active {
+    border-color: #111827 !important;
+    background: #111827 !important;
+    color: #fff !important;
+}
+
+.rekap-filter-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.rekap-filter-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.rekap-filter-fields input,
+.rekap-filter-fields select {
+    width: 100%;
+    min-height: 42px;
+    box-sizing: border-box;
+    padding: 9px 11px;
+    border: 1px solid #dfe3ea;
+    border-radius: 9px;
+    background: #fff;
+    color: #111827;
+    font: inherit;
+}
+
+.rekap-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.rekap-summary-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px;
+    border: 1px solid #e7eaf0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, .035);
+}
+
+.rekap-summary-card span,
+.rekap-summary-card small {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.rekap-summary-card strong {
+    overflow-wrap: anywhere;
+    color: #111827;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.rekap-summary-refund strong,
+.rekap-refund {
+    color: #b45309 !important;
+}
+
+.rekap-summary-net {
+    border-color: #d7f0df;
+    background: #f8fcf9;
+}
+
+.rekap-table-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.rekap-table-header {
+    padding: 18px 18px 14px;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.rekap-table-header h3 {
+    margin: 0;
+    color: #111827;
+    font-size: 17px;
+}
+
+.rekap-table-header p {
+    margin: 5px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.rekap-table-wrap {
+    overflow-x: auto;
+}
+
+.rekap-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    color: #374151;
+    font-size: 13px;
+}
+
+.rekap-table th,
+.rekap-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid #eef0f3;
+    text-align: left;
+}
+
+.rekap-table thead th {
+    background: #fafbfc;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.rekap-table td small {
+    display: block;
+    margin-top: 3px;
+    color: #9ca3af;
+}
+
+.rekap-listing-cell {
+    color: #4b5563;
+    font-weight: 600;
+}
+
+.rekap-table .rekap-listing-row th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    border-bottom-color: #e7eaf0;
+    background: #f8fafc;
+    color: #111827;
+    font-size: 13px;
+}
+
+.rekap-number {
+    text-align: right !important;
+    white-space: nowrap;
+}
+
+.rekap-empty {
+    margin: 18px;
+    padding: 28px 15px;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+    color: #6b7280;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .rekap-summary-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .rekap-filter-fields,
+    .rekap-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rekap-filter-bar,
+    .rekap-table-header {
+        padding: 14px;
+    }
+
+    .rekap-summary-card {
+        padding: 14px;
+    }
+}
+
+/* =========================================================
+   VARQA — TEMA MODUL TERPADU
+   Home adalah acuan visual. Selector berikut hanya menyentuh
+   halaman modul dan tidak mengubah struktur atau perilaku aplikasi.
+   ========================================================= */
+
+:root {
+    --varqa-ink: #111827;
+    --varqa-muted: #6b7280;
+    --varqa-border: #e3e7ee;
+    --varqa-surface: #ffffff;
+    --varqa-soft: #f8fafc;
+    --varqa-primary: #4f46e5;
+    --varqa-primary-hover: #4338ca;
+    --varqa-radius: 14px;
+}
+
+body {
+    min-width: 320px;
+    background: #f4f5f7;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Halaman selain Home memakai lebar, ritme, dan judul yang seragam. */
+#manajemenTokoPage,
+#appContent .container,
+#tab-dashboard,
+#tab-produk,
+#tab-penjualan,
+#tab-order,
+#tab-rekap,
+#tab-export,
+#tab-listing,
+#tab-pengaturan,
+#tab-kalkulator {
+    width: min(100%, 1040px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#appContent .container {
+    max-width: 1040px;
+    padding: 0 4px 40px;
+}
+
+#appContent .tab-page:not(#homePage) {
+    padding: 14px 4px 40px;
+}
+
+#appContent .tab-page:not(#homePage) > h1,
+#appContent .tab-page:not(#homePage) > h2,
+#appContent .tab-page:not(#homePage) > section > h1,
+#appContent .tab-page:not(#homePage) > section > h2 {
+    margin: 0 0 7px;
+    color: var(--varqa-ink);
+    font-size: clamp(24px, 3.2vw, 30px);
+    font-weight: 800;
+    letter-spacing: -.04em;
+}
+
+#appContent .tab-page:not(#homePage) > p,
+#appContent .tab-page:not(#homePage) > section > p,
+#appContent .tab-page:not(#homePage) .subtitle {
+    margin: 0 0 22px;
+    color: var(--varqa-muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+/* Fondasi kartu, form, dan tombol untuk seluruh modul. */
+#appContent .tab-page:not(#homePage):not(#tab-produk):not(#tab-penjualan) .card,
+#tab-kalkulator > section.card {
+    margin: 0 0 16px;
+    padding: 22px;
+    border: 1px solid var(--varqa-border) !important;
+    border-radius: var(--varqa-radius) !important;
+    background: var(--varqa-surface) !important;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, .035) !important;
+}
+
+/* PENJUALAN TANPA PEMBUNGKUS PUTIH */
+#tab-penjualan > section.card {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#appContent .tab-page:not(#homePage) label {
+    margin: 15px 0 7px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#appContent .tab-page:not(#homePage) input:not([type="file"]),
+#appContent .tab-page:not(#homePage) select,
+#appContent .tab-page:not(#homePage) textarea {
+    width: 100%;
+    min-height: 44px;
+    margin: 0;
+    padding: 10px 12px;
+    border: 1px solid #dfe3ea;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--varqa-ink);
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.4;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+#appContent .tab-page:not(#homePage) textarea {
+    min-height: 96px;
+    resize: vertical;
+}
+
+#appContent .tab-page:not(#homePage) input:focus,
+#appContent .tab-page:not(#homePage) select:focus,
+#appContent .tab-page:not(#homePage) textarea:focus {
+    border-color: #a5b4fc;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, .11);
+}
+
+#appContent .tab-page:not(#homePage) button:not(.rekap-period-button):not(.order-btn-primary):not(.order-btn-secondary):not(.order-btn-danger) {
+    width: auto;
+    min-width: 0;
+    height: 42px;
+    margin: 0;
+    padding: 0 14px;
+    border: 1px solid #dbe0e8;
+    border-radius: 9px;
+    background: #fff;
+    color: #374151;
+    box-shadow: none;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+#appContent .tab-page:not(#homePage) button:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+    border-color: #cbd2dc;
+    background: #f8fafc;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, .06);
+}
+
+#appContent .tab-page:not(#homePage) button:active {
+    transform: translateY(0);
+}
+
+/* Aksi yang menyimpan, menambah, atau menghitung menggunakan aksen ungu Home. */
+#appContent .tab-page:not(#homePage) button[onclick*="Tambah"],
+#appContent .tab-page:not(#homePage) button[onclick*="tambah"],
+#appContent .tab-page:not(#homePage) button[onclick*="Simpan"],
+#appContent .tab-page:not(#homePage) button[onclick*="simpan"],
+#appContent .tab-page:not(#homePage) button[onclick*="hitung"],
+#appContent .tab-page:not(#homePage) button[onclick*="kelolaListing"] {
+    border-color: var(--varqa-primary) !important;
+    background: var(--varqa-primary) !important;
+    color: #fff !important;
+}
+
+#appContent .tab-page:not(#homePage) button[onclick*="Tambah"]:hover,
+#appContent .tab-page:not(#homePage) button[onclick*="tambah"]:hover,
+#appContent .tab-page:not(#homePage) button[onclick*="Simpan"]:hover,
+#appContent .tab-page:not(#homePage) button[onclick*="simpan"]:hover,
+#appContent .tab-page:not(#homePage) button[onclick*="hitung"]:hover,
+#appContent .tab-page:not(#homePage) button[onclick*="kelolaListing"]:hover {
+    border-color: var(--varqa-primary-hover) !important;
+    background: var(--varqa-primary-hover) !important;
+}
+
+/* Aksi berisiko tetap jelas, tanpa keluar dari bahasa visual aplikasi. */
+#appContent .tab-page:not(#homePage) button[onclick*="hapus"],
+#appContent .tab-page:not(#homePage) button[onclick*="Hapus"] {
+    border-color: #fecaca !important;
+    background: #fff7f7 !important;
+    color: #b91c1c !important;
+}
+
+/* Tombol kembali selalu kecil, netral, dan berada pada posisi yang konsisten. */
+#appContent .tab-page:not(#homePage) > .btn-kembali-home,
+#appContent .tab-page:not(#homePage) > button[onclick="kembaliKePenjualan()"],
+#tab-order > section > button[onclick="kembaliKePenjualan()"],
+#tab-rekap > section > button[onclick="kembaliKePenjualan()"],
+#tab-export > section > button[onclick="kembaliKePenjualan()"] {
+    width: 46px !important;
+    min-width: 46px !important;
+    max-width: 46px !important;
+
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+
+    padding: 0 !important;
+    margin: 0 8px 20px 0 !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+
+    background: #ffffff !important;
+    color: #111827 !important;
+
+    font-size: 20px !important;
+    font-weight: 600 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Dashboard dan manajemen toko. */
+#tab-dashboard,
+#manajemenTokoPage {
+    padding: 24px !important;
+    border: 1px solid var(--varqa-border);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, .035);
+}
+
+#tab-dashboard > p {
+    margin-bottom: 0 !important;
+}
+
+#manajemenTokoPage #daftarToko > div {
+    margin-bottom: 10px !important;
+    padding: 16px !important;
+    border: 1px solid var(--varqa-border) !important;
+    border-radius: 12px !important;
+    background: #fff !important;
+    box-shadow: 0 2px 7px rgba(15, 23, 42, .025);
+}
+
+#manajemenTokoPage #daftarToko button,
+#manajemenTokoPage > button[onclick*="tampilkanForm"] {
+    margin-top: 12px !important;
+}
+
+#manajemenTokoPage #formTambahToko {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    border: 1px solid var(--varqa-border);
+    border-radius: 12px;
+    background: var(--varqa-soft);
+}
+
+#manajemenTokoPage #formTambahToko input {
+    flex: 1;
+}
+
+/* Master produk, Listing, dan kartu hasil yang dibentuk JavaScript. */
+#tab-produk > section.card {
+    max-width: 780px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#tab-produk #panelMasterProduk > button {
+    margin: 12px 0 4px !important;
+}
+
+#tab-produk #formMasterProduk,
+#tab-listing #formListing,
+#tab-listing #formProdukListing {
+    padding: 18px !important;
+    border: 1px solid var(--varqa-border) !important;
+    border-radius: 12px !important;
+    background: var(--varqa-soft) !important;
+    box-shadow: none !important;
+}
+
+#tab-produk #daftarMasterProduk > div,
+#tab-listing #daftarListing > div,
+#tab-listing #daftarProdukListing > div {
+    border-color: var(--varqa-border) !important;
+    border-radius: 12px !important;
+    background: #fff !important;
+    box-shadow: 0 2px 7px rgba(15, 23, 42, .025) !important;
+}
+
+#tab-listing {
+    padding: 14px 4px 40px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#tab-listing #isiPenjualanListing,
+#tab-listing #panelKelolaListing {
+    max-width: 780px;
+}
+
+#tab-listing #panelKelolaListing {
+    padding-top: 20px !important;
+    border-top-color: var(--varqa-border) !important;
+}
+
+#tab-listing #rekomendasiProdukListing {
+    border-color: var(--varqa-border) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, .09);
+}
+
+/* Halaman menu Penjualan memakai kartu pilihan dengan proporsi Home. */
+#tab-penjualan > section.card {
+    max-width: 1040px;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#tab-penjualan > section.card > h1,
+#tab-penjualan > section.card > .subtitle {
+    margin-left: 0;
+}
+
+#menuPenjualan {
+    gap: 12px !important;
+    margin-top: 20px !important;
+}
+
+#menuPenjualan > button {
+    min-height: 112px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 18px !important;
+    border: 1px solid var(--varqa-border) !important;
+    border-radius: 14px !important;
+    background: #fff !important;
+    color: var(--varqa-ink) !important;
+    box-shadow: 0 2px 7px rgba(15, 23, 42, .035) !important;
+}
+
+#menuPenjualan > button:hover {
+    transform: translateY(-2px) !important;
+    border-color: #cfd6e1 !important;
+    background: #fff !important;
+    box-shadow: 0 9px 20px rgba(15, 23, 42, .08) !important;
+}
+
+/* Kalkulator mengikuti pola panel: input di kiri, hasil terbaca sebagai daftar. */
+#tab-kalkulator {
+    display: grid;
+    grid-template-columns: minmax(300px, .8fr) minmax(360px, 1.2fr);
+    gap: 16px;
+    align-items: start;
+}
+
+#tab-kalkulator[style*="display: block"] {
+    display: grid !important;
+}
+
+#tab-kalkulator > h1,
+#tab-kalkulator > .subtitle {
+    grid-column: 1 / -1;
+}
+
+#tab-kalkulator > section.card {
+    margin: 0;
+}
+
+#tab-kalkulator .hasil-row {
+    min-height: 48px;
+    margin-bottom: 7px;
+    padding: 10px 12px;
+    border: 1px solid #edf0f4;
+    border-radius: 10px;
+    background: var(--varqa-soft);
+}
+
+#tab-kalkulator .hasil-row span {
+    color: var(--varqa-muted);
+    font-size: 13px;
+}
+
+#tab-kalkulator .hasil-row strong {
+    color: var(--varqa-ink);
+    font-size: 14px;
+}
+
+#tab-kalkulator #kelolaHPP,
+#tab-kalkulator #rekomendasiKalkulator,
+#tab-kalkulator #simulasiRoas > div:first-child {
+    border-color: var(--varqa-border) !important;
+    border-radius: 10px !important;
+    background: var(--varqa-soft);
+}
+
+#tab-kalkulator table {
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid var(--varqa-border);
+    border-radius: 10px;
+    background: #fff;
+    font-size: 13px;
+}
+
+#tab-kalkulator th,
+#tab-kalkulator td {
+    padding: 10px !important;
+    border-bottom: 1px solid #edf0f4 !important;
+}
+
+#tab-kalkulator th {
+    background: var(--varqa-soft);
+    color: var(--varqa-muted);
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+/* Penyesuaian akhir untuk module yang dirender dinamis: Order dan Rekap. */
+.order-page,
+.rekap-page {
+    max-width: 1040px;
+    margin-top: 0;
+}
+
+.order-filter-bar,
+.rekap-filter-bar,
+.order-form-card,
+.rekap-table-card {
+    border-color: var(--varqa-border);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, .035);
+}
+
+.order-btn-primary,
+.rekap-period-button.active {
+    border-color: var(--varqa-primary) !important;
+    background: var(--varqa-primary) !important;
+}
+
+.order-btn-primary:hover,
+.rekap-period-button.active:hover {
+    border-color: var(--varqa-primary-hover) !important;
+    background: var(--varqa-primary-hover) !important;
+}
+
+.order-history-card,
+.rekap-summary-card {
+    border-color: var(--varqa-border);
+    border-radius: 12px;
+    box-shadow: 0 2px 7px rgba(15, 23, 42, .025);
+}
+
+@media (max-width: 760px) {
+    #appContent .tab-page:not(#homePage) {
+        padding: 10px 0 28px;
+    }
+
+    #appContent .container {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    #tab-dashboard,
+    #manajemenTokoPage,
+    #tab-listing {
+        padding: 18px !important;
+    }
+
+    #tab-kalkulator {
+        display: block;
+    }
+
+    #tab-kalkulator > h1 {
+        margin-bottom: 7px;
+    }
+
+    #tab-kalkulator > section.card {
+        margin-bottom: 14px;
+    }
+
+    #menuPenjualan {
+        grid-template-columns: 1fr !important;
+    }
+
+    #manajemenTokoPage #formTambahToko {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
+/* FIX HEADER ORDER */
+.order-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.order-header > div {
+    flex: 1;
+}
+
+.order-header .btn-primary {
+    width: auto !important;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   TOMBOL ORDER — UKURAN + POSISI SEJAJAR
+   ========================================= */
+
+.order-section-header .order-btn-primary,
+.order-form-actions .order-btn-primary {
+    width: 165px !important;
+    min-width: 165px !important;
+    max-width: 165px !important;
+    height: 50px !important;
+    box-sizing: border-box !important;
+}
+
+/* Container tombol bawah mengikuti lebar form */
+.order-form-actions {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 25px !important;
+    box-sizing: border-box !important;
+    padding: 20px !important;
+}
+
+/* Batal */
+.order-form-actions button:not(.order-btn-primary) {
+    width: 165px !important;
+    min-width: 165px !important;
+    height: 50px !important;
+    box-sizing: border-box !important;
+}
+
+/* PENJUALAN — SAMAKAN DENGAN HOME */
+#tab-penjualan {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 14px 4px 40px !important;
+}
+
+/* =========================================================
+   TOMBOL HOME — POSISI SERAGAM SEMUA TAB
+   ========================================================= */
+
+#appContent .tab-page .btn-kembali-home {
+    width: 46px !important;
+    min-width: 46px !important;
+    max-width: 46px !important;
+
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+
+    background: #ffffff !important;
+    color: #111827 !important;
+
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    box-shadow: 0 2px 6px rgba(15, 23, 42, .06) !important;
+}
+
+.app-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.app-header-left > strong {
+    flex-shrink: 0;
+}
+
+.btn-header-home {
+    position: relative !important;
+    top: 12px !important;
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 9px !important;
+
+    background: #ffffff !important;
+    color: #111827 !important;
+
+    font-size: 17px !important;
+    line-height: 1 !important;
+
+    box-shadow: 0 2px 6px rgba(15, 23, 42, .05) !important;
+    cursor: pointer;
+}
+
+.btn-header-home:hover {
+    opacity: 1 !important;
+    background: #f8fafc !important;
+    border-color: #d1d5db !important;
+    transform: translateY(-1px);
+}
+
+.btn-header-home:active {
+    transform: translateY(0);
+}
+
+/* ============================================================
+   VARQA — EXPORT
+   ============================================================ */
+
+#tab-export {
+    padding: 14px 4px 40px !important;
+}
+
+#tab-export h2 {
+    margin-bottom: 4px;
+}
+
+#tab-export > p {
+    margin-top: 0;
+    margin-bottom: 22px;
+    color: var(--varqa-muted);
+}
+
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+
+.export-section {
+    margin-bottom: 22px;
+}
+
+.export-section h3 {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   PERIODE
+   ============================================================ */
+
+.export-period-buttons {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.export-period-buttons button {
+    min-height: 42px;
+    border: 1px solid var(--varqa-border);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--varqa-text);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.export-period-buttons button.active {
+    border-color: var(--varqa-primary);
+    background: var(--varqa-primary);
+    color: #fff;
+}
+
+
+/* ============================================================
+   TANGGAL
+   ============================================================ */
+
+.export-date-fields {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.export-date-fields label,
+.export-section > label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.export-date-fields span,
+.export-section > label > span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.export-date-fields input,
+.export-section select {
+    width: 100%;
+    min-height: 42px;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border: 1px solid var(--varqa-border);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--varqa-text);
+}
+
+
+/* ============================================================
+   FORMAT EXPORT
+   ============================================================ */
+
+.export-format-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.export-format-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 64px;
+    padding: 10px 12px;
+    border: 1px solid var(--varqa-border);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--varqa-text);
+    text-align: left;
+    cursor: pointer;
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        border-color .15s ease;
+}
+
+.export-format-btn:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, .07);
+}
+
+.export-format-icon {
+    font-size: 24px;
+    flex: 0 0 auto;
+}
+
+.export-format-btn strong {
+    display: block;
+    font-size: 14px;
+}
+
+.export-format-btn small {
+    display: block;
+    margin-top: 2px;
+    color: var(--varqa-muted);
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   STATUS
+   ============================================================ */
+
+.export-status-message {
+    min-height: 20px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--varqa-muted);
+}
+
+.export-status-message.error {
+    color: #dc2626;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .export-period-buttons {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .export-date-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .export-format-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* =========================================================
+   FIX HOME MOBILE — JARAK KIRI & KANAN
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #homePage {
+        width: 100%;
+        padding: 10px 14px 28px !important;
+    }
+
+    #homePage .home-hero,
+    #homePage .home-quick-actions,
+    #homePage .home-section {
+        width: 100%;
+    }
+
+}
+
+/* ============================================================
+   VARQA — MODAL EDIT PRODUK LISTING
+   ============================================================ */
+
+/* Lapisan gelap di belakang modal */
+body.modal-edit-listing::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.28);
+    z-index: 9998;
+}
+
+
+/* Modal */
+#formProdukListing.form-edit-listing {
+    position: fixed !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    width: min(500px, calc(100vw - 32px)) !important;
+    max-height: calc(100vh - 32px);
+
+    overflow-y: auto;
+
+    margin: 0 !important;
+    padding: 20px !important;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 14px !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.18);
+
+    z-index: 9999 !important;
+}
+
+
+/* Judul */
+#formProdukListing.form-edit-listing
+#judulFormProdukListing {
+    margin: 0 0 18px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* Input edit */
+#formProdukListing.form-edit-listing input,
+#formProdukListing.form-edit-listing textarea,
+#formProdukListing.form-edit-listing select {
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+
+    padding: 10px 11px !important;
+
+    border-radius: 8px !important;
+
+    box-sizing: border-box;
+}
+
+
+/* Produk readonly */
+#formProdukListing.form-edit-listing
+#searchProdukListing {
+    background: #f8fafc !important;
+    color: #475569 !important;
+    cursor: default;
+}
+
+
+/* HPP readonly */
+#formProdukListing.form-edit-listing
+#hppListing {
+    background: #f8fafc !important;
+    color: #475569 !important;
+    cursor: default;
+}
+
+
+/* Catatan */
+#formProdukListing.form-edit-listing
+#catatanListingProduk {
+    min-height: 80px;
+    resize: vertical;
+}
+
+
+/* Tombol */
+#formProdukListing.form-edit-listing button {
+    height: 38px !important;
+
+    padding: 0 14px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 12px !important;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    #formProdukListing.form-edit-listing {
+        width: calc(100vw - 24px) !important;
+
+        max-height: calc(100vh - 24px);
+
+        padding: 16px !important;
+
+        border-radius: 12px !important;
+    }
+
+}
+
+/* =========================================================
+   KALKULATOR IKLAN V1
+   ========================================================= */
+
+.iklan-kalkulator-card,
+.iklan-hasil-card {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.iklan-kalkulator-card h2,
+.iklan-hasil-card h2 {
+    margin-top: 0;
+}
+
+
+.iklan-kalkulator-card h3,
+.iklan-hasil-card h3 {
+    margin-top: 28px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+
+.iklan-info-kecil {
+    margin-top: 8px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+
+.iklan-btn-hitung {
+    width: 100%;
+    margin-top: 18px;
+}
+
+
+.iklan-status-hasil {
+    margin-top: 22px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #f3f4f6;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+#iklanTargetRoas:disabled {
+    background: #f3f4f6;
+    color: #6b7280;
+    cursor: not-allowed;
+}
+
+body.modal-tambah-listing::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.28);
+    z-index: 9998;
+}
+
+#formListing.form-tambah-listing {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(520px, calc(100vw - 32px)) !important;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-sizing: border-box;
+    background: #fff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 14px !important;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+    z-index: 9999 !important;
+}
+
+/* ============================================================
+   VARQA — POPUP ORDER
+   ============================================================ */
+
+/* Background halaman */
+body.modal-order::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        rgba(15, 23, 42, 0.28);
+
+    z-index: 9998;
+}
+
+
+/* Popup */
+.order-page.order-popup {
+
+    position: fixed !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    transform:
+        translate(-50%, -50%) !important;
+
+    width:
+        min(820px, calc(100vw - 32px))
+        !important;
+
+    max-height:
+        calc(100vh - 32px);
+
+    overflow-y: auto;
+
+    margin: 0 !important;
+
+    padding: 20px !important;
+
+    box-sizing: border-box;
+
+    background:
+        #ffffff !important;
+
+    border:
+        1px solid #e5e7eb !important;
+
+    border-radius:
+        14px !important;
+
+    box-shadow:
+        0 20px 50px
+        rgba(15, 23, 42, 0.18);
+
+    z-index: 9999 !important;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .order-page.order-popup {
+
+        width:
+            calc(100vw - 20px)
+            !important;
+
+        max-height:
+            calc(100vh - 20px);
+
+        padding:
+            14px !important;
+    }
+
+}
+
+/* =========================================================
+   MASTER PRODUK — RAPikan TOMBOL DI MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #tab-produk #panelMasterProduk > button {
+
+        position: static !important;
+
+        display: block !important;
+
+        width: auto !important;
+        min-width: 0 !important;
+
+        height: 40px !important;
+
+        margin:
+            -8px 0 14px auto
+            !important;
+
+        padding:
+            0 14px
+            !important;
+
+        border-radius:
+            9px
+            !important;
+
+        font-size:
+            12px
+            !important;
+
+        font-weight:
+            600
+            !important;
+
+        line-height:
+            1
+            !important;
+    }
+
+    #tab-produk .card h2 {
+
+        margin-bottom:
+            12px
+            !important;
+
+        font-size:
+            24px
+            !important;
+    }
+
+}
+
+/* =========================================================
+   LISTING — RAPikan CARD MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Card */
+    #daftarListing > div {
+        padding: 14px !important;
+        margin-bottom: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+
+    /* Baris utama Listing:
+       teks + tombol jangan lagi berdampingan */
+    #daftarListing > div > div {
+
+        display: block !important;
+
+    }
+
+
+    /* Area informasi Listing */
+    #daftarListing > div > div > div:first-child {
+
+        width: 100% !important;
+        min-width: 0 !important;
+
+        margin-bottom: 10px !important;
+
+    }
+
+
+    /* Area tombol */
+    #daftarListing > div > div > div:last-child {
+
+        display: grid !important;
+
+        grid-template-columns:
+            minmax(0, 1.7fr)
+            minmax(0, 0.8fr)
+            minmax(0, 0.8fr);
+
+        gap: 6px !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+    }
+
+
+    /* Semua tombol */
+    #daftarListing > div > div > div:last-child button {
+
+        width: 100% !important;
+
+        min-width: 0 !important;
+
+        height: 38px !important;
+
+        margin: 0 !important;
+
+        padding:
+            0 5px !important;
+
+        border-radius:
+            8px !important;
+
+        font-size:
+            11px !important;
+
+        line-height:
+            1.1 !important;
+
+        white-space:
+            nowrap !important;
+
+    }
+
+}

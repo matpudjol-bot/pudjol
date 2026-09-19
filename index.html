@@ -1,0 +1,2787 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#111827"
+    >
+
+    <title>Kalkulator Shopee</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+</head>
+
+<body>
+
+
+<!-- ===================================================== -->
+<!-- LOGIN -->
+<!-- ===================================================== -->
+
+<div id="loginPage">
+
+    <h2>Login VARQA</h2>
+
+    <input
+        type="email"
+        id="loginEmail"
+        placeholder="Email"
+    >
+
+    <input
+        type="password"
+        id="loginPassword"
+        placeholder="Password"
+    >
+
+    <button
+        type="button"
+        onclick="loginUser()"
+    >
+        LOGIN
+    </button>
+
+    <p id="loginMessage"></p>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- APP -->
+<!-- ===================================================== -->
+
+<div id="appContent">
+
+
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
+
+    <div class="app-header">
+
+        <div class="app-header-left">
+            <strong>VARQA</strong>
+
+            <button
+                type="button"
+                class="btn-header-home"
+                onclick="kembaliKeHome()"
+                title="Home"
+                aria-label="Kembali ke Home"
+            >
+                🏠
+            </button>
+        </div>
+
+        <div class="menu-akun">
+
+            <button
+                type="button"
+                class="btn-menu"
+                onclick="
+                    const menu = document.getElementById('menuAkun');
+                    menu.style.display =
+                        menu.style.display === 'block'
+                            ? 'none'
+                            : 'block';
+                "
+            >
+                ⋮
+            </button>
+
+
+            <div
+                id="menuAkun"
+                class="dropdown-akun"
+            >
+
+                <button
+                    type="button"
+                    onclick="tampilkanManajemenToko()"
+                >
+                    Manajemen Toko
+                </button>
+
+                <button
+                    type="button"
+                    onclick="logoutUser()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- HOME -->
+    <!-- ================================================= -->
+
+    <div id="homePage">
+
+        <section class="home-hero">
+            <div>
+                <p class="home-eyebrow">OPERASIONAL TOKO</p>
+                <h1>Kelola toko, lebih ringkas.</h1>
+                <p class="home-description">Akses produk, penjualan, dan analisis dari satu tempat.</p>
+            </div>
+            <div id="infoTokoAktif" class="home-store"></div>
+        </section>
+
+        <section class="home-quick-actions" aria-label="Akses cepat">
+            <div class="quick-actions-heading">
+                <strong>Akses Cepat</strong>
+                <span>Pilih tindakan yang ingin dilakukan.</span>
+            </div>
+            <div class="quick-actions-buttons">
+                <button type="button" class="quick-action quick-action-primary" onclick="bukaProgram('produk'); setTimeout(tambahProdukBaru, 0);">
+                    <span>+</span> Tambah Produk
+                </button>
+                <button type="button" class="quick-action" onclick="bukaProgram('listing'); setTimeout(tampilkanFormListing, 0);">
+                    <span>+</span> Buat Listing
+                </button>
+                <button type="button" class="quick-action" onclick="bukaProgram('kalkulator')">
+                    Hitung Harga
+                </button>
+            </div>
+        </section>
+
+        <section class="home-section">
+            <h2>Operasional</h2>
+            <div class="home-menu-grid">
+                <button type="button" class="home-menu-card accent-orange" onclick="bukaProgram('produk')"><span class="menu-icon">▣</span><span class="menu-copy"><strong>Produk</strong><small>Master produk &amp; HPP</small></span><span class="menu-arrow">›</span></button>
+                <button type="button" class="home-menu-card accent-green" onclick="bukaProgram('penjualan')"><span class="menu-icon">⌑</span><span class="menu-copy"><strong>Penjualan</strong><small>Listing dan pesanan</small></span><span class="menu-arrow">›</span></button>
+                <button type="button" class="home-menu-card accent-pink" onclick="bukaProgram('iklan')"><span class="menu-icon">◢</span><span class="menu-copy"><strong>Iklan</strong><small>Strategi dan performa</small></span><span class="menu-arrow">›</span></button>
+            </div>
+        </section>
+
+        <section class="home-section">
+            <h2>Analisis</h2>
+            <div class="home-menu-grid">
+                <button type="button" class="home-menu-card accent-blue" onclick="bukaProgram('dashboard')"><span class="menu-icon">▥</span><span class="menu-copy"><strong>Dashboard</strong><small>Ringkasan performa</small></span><span class="menu-arrow">›</span></button>
+                <button type="button" class="home-menu-card accent-emerald" onclick="bukaProgram('keuangan')"><span class="menu-icon">◉</span><span class="menu-copy"><strong>Keuangan</strong><small>Arus kas dan laba</small></span><span class="menu-arrow">›</span></button>
+                <button type="button" class="home-menu-card accent-blue" onclick="bukaProgram('laporan')"><span class="menu-icon">↗</span><span class="menu-copy"><strong>Laporan</strong><small>Data dan insight</small></span><span class="menu-arrow">›</span></button>
+            </div>
+        </section>
+
+        <section class="home-section">
+            <h2>Utilitas</h2>
+            <div class="home-menu-grid">
+                <button type="button" class="home-menu-card accent-purple" onclick="bukaProgram('kalkulator')"><span class="menu-icon">⊞</span><span class="menu-copy"><strong>Kalkulator</strong><small>Simulasi harga jual</small></span><span class="menu-arrow">›</span></button>
+                <button type="button" class="home-menu-card accent-slate" onclick="bukaProgram('pengaturan')"><span class="menu-icon">⚙</span><span class="menu-copy"><strong>Pengaturan</strong><small>Preferensi toko</small></span><span class="menu-arrow">›</span></button>
+            </div>
+        </section>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- MANAJEMEN TOKO -->
+    <!-- ================================================= -->
+
+    <div
+        id="manajemenTokoPage"
+        class="tab-page"
+    >
+
+        <h2>Manajemen Toko</h2>
+
+
+        <div id="daftarToko"></div>
+
+
+        <button
+            type="button"
+            onclick="tampilkanFormTambahToko()"
+        >
+            + Tambah Toko
+        </button>
+
+
+        <div
+            id="formTambahToko"
+            style="
+                display:none;
+                margin-top:15px;
+            "
+        >
+
+            <input
+                type="text"
+                id="namaTokoBaru"
+                placeholder="Nama toko"
+            >
+
+            <button
+                type="button"
+                onclick="tambahToko()"
+            >
+                Simpan Toko
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- NAVIGASI TAB -->
+    <!-- ================================================= -->
+
+    <nav class="main-tabs">
+
+        <button
+            class="tab-btn active"
+            data-tab="dashboard"
+        >
+            Dashboard
+        </button>
+
+
+        <button
+            class="tab-btn"
+            data-tab="produk"
+        >
+            Produk
+        </button>
+
+
+        <button
+            class="tab-btn"
+            data-tab="penjualan"
+        >
+            Penjualan
+        </button>
+
+
+        <button
+            class="tab-btn"
+            data-tab="iklan"
+        >
+            Iklan
+        </button>
+
+
+        <button
+            class="tab-btn"
+            data-tab="keuangan"
+        >
+            Keuangan
+        </button>
+
+
+        <button
+            class="tab-btn"
+            data-tab="kalkulator"
+        >
+            Kalkulator
+        </button>
+
+
+        <button
+            class="tab-btn"
+            data-tab="laporan"
+        >
+            Laporan
+        </button>
+
+
+        <button
+            class="tab-btn"
+            data-tab="pengaturan"
+        >
+            Pengaturan
+        </button>
+
+    </nav>
+
+
+    <!-- ================================================= -->
+    <!-- DASHBOARD -->
+    <!-- ================================================= -->
+
+    <div
+        id="tab-dashboard"
+        class="tab-page"
+    >
+
+        <h1>Dashboard</h1>
+
+        <p>
+            Ringkasan bisnis akan tampil di sini.
+        </p>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <!-- ================================================= -->
+        <!-- PRODUK -->
+        <!-- ================================================= -->
+
+        <div
+            id="tab-produk"
+            class="tab-page"
+        >
+
+
+            <!-- ============================================= -->
+            <!-- MASTER PRODUK -->
+            <!-- ============================================= -->
+
+            <section class="card settings-card">
+
+                <h2>📦 Master Produk</h2>
+
+
+                <div
+                    id="panelMasterProduk"
+                    style="
+                        margin-top:15px;
+                    "
+                >
+
+
+                    <!-- ===================================== -->
+                    <!-- PENCARIAN -->
+                    <!-- ===================================== -->
+
+                    <input
+                        type="text"
+                        id="cariMasterProduk"
+                        placeholder="Cari SKU atau nama produk..."
+                        autocomplete="off"
+                    >
+
+                    <select id="filterKategoriMasterProduk">
+                    <option value="">Semua Kategori</option>
+                    </select>
+                    <select id="filterStatusMasterProduk">
+    <option value="">Semua Status</option>
+    <option value="Aktif">Aktif</option>
+    <option value="Nonaktif">Nonaktif</option>
+</select>
+
+
+                    <!-- ===================================== -->
+                    <!-- TAMBAH PRODUK -->
+                    <!-- ===================================== -->
+
+                    <button
+                        type="button"
+                        onclick="tambahProdukBaru()"
+                    >
+                        + TAMBAH PRODUK
+                    </button>
+
+
+                    <!-- ===================================== -->
+                    <!-- FORM PRODUK -->
+                    <!-- ===================================== -->
+
+                    <div
+                        id="formMasterProduk"
+                        style="
+                            display:none;
+                            margin-top:15px;
+                            padding:15px;
+                            border:1px solid #ddd;
+                            border-radius:8px;
+                        "
+                    >
+
+                        <h3>
+                            Tambah / Edit Produk
+                        </h3>
+
+
+                        <!-- SKU -->
+
+                        <label for="masterSKU">
+                            SKU
+                        </label>
+
+                        <input
+                            type="text"
+                            id="masterSKU"
+                            placeholder="Contoh: CBP-24"
+                        >
+
+
+                        <!-- NAMA -->
+
+                        <label for="masterNama">
+                            Nama Produk
+                        </label>
+
+                        <input
+                            type="text"
+                            id="masterNama"
+                            placeholder="Nama produk"
+                        >
+
+
+                        <!-- KATEGORI -->
+
+                        <label for="masterKategori">
+                            Kategori Produk
+                        </label>
+
+                        <input
+                            type="text"
+                            id="masterKategori"
+                            placeholder="Contoh: Alat Cukur"
+                        >
+
+
+                        <!-- HPP -->
+
+                        <label for="masterHPP">
+                            HPP
+                        </label>
+
+                        <input
+                            type="number"
+                            id="masterHPP"
+                            placeholder="Contoh: 44000"
+                        >
+
+
+                        <!-- UNIT PACKING -->
+
+                        <label for="masterUnitPacking">
+                            Unit Packing
+                        </label>
+
+                        <input
+                            type="number"
+                            id="masterUnitPacking"
+                            value="1"
+                            min="1"
+                        >
+
+                        <!-- POTONGAN SHOPEE -->
+
+                        <label for="masterPotonganShopee">
+                            Potongan Shopee (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="masterPotonganShopee"
+                            step="0.01"
+                            min="0"
+                            max="100"
+                        >
+
+
+                        <!-- STATUS -->
+
+                        <label for="masterStatus">
+                            Status Produk
+                        </label>
+
+                        <select id="masterStatus">
+
+                            <option value="Aktif">
+                                Aktif
+                            </option>
+
+                            <option value="Nonaktif">
+                                Nonaktif
+                            </option>
+
+                        </select>
+
+
+                        <!-- CATATAN -->
+
+                        <label for="masterCatatan">
+                            Catatan Produk
+                        </label>
+
+                        <textarea
+                            id="masterCatatan"
+                            rows="3"
+                            placeholder="Catatan produk (opsional)"
+                        ></textarea>
+
+
+                        <!-- BUTTON -->
+
+                        <div class="master-produk-actions">
+                            <button
+                                type="button"
+                                onclick="simpanMasterProduk()"
+                            >
+                                SIMPAN PRODUK
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="batalMasterProduk()"
+                            >
+                                BATAL
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- ===================================== -->
+                    <!-- JUMLAH PRODUK -->
+                    <!-- ===================================== -->
+
+                    <div
+                        id="infoJumlahMasterProduk"
+                        style="
+                            margin-top:15px;
+                            margin-bottom:10px;
+                            font-size:13px;
+                            font-weight:600;
+                        "
+                    ></div>
+
+
+                    <!-- ===================================== -->
+                    <!-- DAFTAR PRODUK -->
+                    <!-- ===================================== -->
+
+                    <div
+                        id="daftarMasterProduk"
+                        style="
+                            margin-top:15px;
+                        "
+                    ></div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- ================================================= -->
+<!-- PENJUALAN -->
+<!-- ================================================= -->
+
+<div
+    id="tab-penjualan"
+    class="tab-page"
+    style="display:none;"
+>
+
+    <section class="card">
+
+        <h1>Penjualan</h1>
+
+        <p class="subtitle">
+            Kelola listing, order, rekap, dan export penjualan.
+        </p>
+
+<!-- ========================================= -->
+<!-- MENU PENJUALAN -->
+<!-- ========================================= -->
+
+<div id="menuPenjualan" class="home-menu-grid">
+
+    <!-- LISTING -->
+    <button
+        type="button"
+        class="home-menu-card accent-orange"
+        onclick="bukaProgram('listing')"
+    >
+        <span class="menu-icon">📋</span>
+
+        <span class="menu-copy">
+            <strong>Listing</strong>
+            <small>Kelola produk dalam listing</small>
+        </span>
+
+        <span class="menu-arrow">›</span>
+    </button>
+
+
+    <!-- ORDER -->
+    <button
+        type="button"
+        class="home-menu-card accent-green"
+        onclick="bukaProgram('order')"
+    >
+        <span class="menu-icon">🛒</span>
+
+        <span class="menu-copy">
+            <strong>Order</strong>
+            <small>Input transaksi penjualan</small>
+        </span>
+
+        <span class="menu-arrow">›</span>
+    </button>
+
+
+    <!-- REKAP -->
+    <button
+        type="button"
+        class="home-menu-card accent-blue"
+        onclick="bukaProgram('rekap')"
+    >
+        <span class="menu-icon">📊</span>
+
+        <span class="menu-copy">
+            <strong>Rekap</strong>
+            <small>Lihat ringkasan penjualan</small>
+        </span>
+
+        <span class="menu-arrow">›</span>
+    </button>
+
+
+    <!-- EXPORT -->
+    <button
+        type="button"
+        class="home-menu-card accent-purple"
+        onclick="bukaProgram('export')"
+    >
+        <span class="menu-icon">📤</span>
+
+        <span class="menu-copy">
+            <strong>Export</strong>
+            <small>Export data penjualan</small>
+        </span>
+
+        <span class="menu-arrow">›</span>
+    </button>
+
+</div>
+</section>
+</div>
+
+<!-- ========================================= -->
+<!-- ORDER -->
+<!-- ========================================= -->
+
+<!-- ========================================= -->
+<!-- ORDER -->
+<!-- ========================================= -->
+
+<div
+    id="tab-order"
+    class="tab-page"
+    style="display:none;"
+>
+
+    <section class="card">
+
+        <button
+            type="button"
+            onclick="kembaliKePenjualan()"
+        >
+            ↩
+        </button>
+
+        <div id="isiPenjualanOrder"></div>
+
+    </section>
+
+</div>
+
+<!-- ========================================= -->
+<!-- REKAP -->
+<!-- ========================================= -->
+
+<div
+    id="tab-rekap"
+    class="tab-page"
+    style="display:none;"
+>
+
+    <section class="card">
+
+        <button
+            type="button"
+            onclick="kembaliKePenjualan()"
+        >
+            ↩
+        </button>
+
+        <h2>📊 Rekap</h2>
+
+        <p>
+            Ringkasan penjualan berdasarkan periode.
+        </p>
+
+        <div id="isiPenjualanRekap" aria-live="polite"></div>
+
+    </section>
+
+</div>
+
+<!-- ========================================= -->
+<!-- EXPORT -->
+<!-- ========================================= -->
+
+<div
+    id="tab-export"
+    class="tab-page"
+    style="display:none;"
+>
+
+    <button
+        type="button"
+        onclick="kembaliKePenjualan()"
+    >
+        ↩
+    </button>
+
+    <h2>📤 Export</h2>
+
+    <p>
+        Ekspor data penjualan ke berbagai format.
+    </p>
+
+
+    <div id="isiPenjualanExport">
+
+
+        <!-- ===================================== -->
+        <!-- PILIH PERIODE -->
+        <!-- ===================================== -->
+
+        <div class="export-section">
+
+            <h3>Periode</h3>
+
+            <div class="export-period-buttons">
+
+                <button
+                    type="button"
+                    onclick="pilihPeriodeExport('hari-ini')"
+                    id="exportPeriodeHariIni"
+                >
+                    Hari Ini
+                </button>
+
+                <button
+                    type="button"
+                    onclick="pilihPeriodeExport('7-hari')"
+                    id="exportPeriode7Hari"
+                >
+                    7 Hari
+                </button>
+
+                <button
+                    type="button"
+                    onclick="pilihPeriodeExport('bulan-ini')"
+                    id="exportPeriodeBulanIni"
+                >
+                    Bulan Ini
+                </button>
+
+                <button
+                    type="button"
+                    onclick="pilihPeriodeExport('custom')"
+                    id="exportPeriodeCustom"
+                >
+                    Custom
+                </button>
+
+            </div>
+
+
+            <div class="export-date-fields">
+
+                <label>
+                    <span>Tanggal Dari</span>
+
+                    <input
+                        type="date"
+                        id="exportTanggalDari"
+                        onchange="ubahFilterExport()"
+                    >
+                </label>
+
+
+                <label>
+                    <span>Tanggal Sampai</span>
+
+                    <input
+                        type="date"
+                        id="exportTanggalSampai"
+                        onchange="ubahFilterExport()"
+                    >
+                </label>
+
+            </div>
+
+
+            <label>
+                <span>Status</span>
+
+                <select
+                    id="exportStatus"
+                    onchange="ubahFilterExport()"
+                >
+                    <option value="">Semua</option>
+                    <option value="Selesai">Selesai</option>
+                    <option value="Refund/Return">Refund/Return</option>
+                </select>
+
+            </label>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- FORMAT EXPORT -->
+        <!-- ===================================== -->
+
+        <div class="export-section">
+
+            <h3>Format Export</h3>
+
+            <div class="export-format-grid">
+
+                <button
+                    type="button"
+                    class="export-format-btn export-xlsx"
+                    onclick="exportPenjualanExcel()"
+                >
+                    <span class="export-format-icon">📊</span>
+                    <span>
+                        <strong>Excel</strong>
+                        <small>.xlsx</small>
+                    </span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="export-format-btn export-csv"
+                    onclick="exportPenjualanCSV()"
+                >
+                    <span class="export-format-icon">📄</span>
+                    <span>
+                        <strong>CSV</strong>
+                        <small>.csv</small>
+                    </span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="export-format-btn export-pdf"
+                    onclick="exportPenjualanPDF()"
+                >
+                    <span class="export-format-icon">📕</span>
+                    <span>
+                        <strong>PDF</strong>
+                        <small>.pdf</small>
+                    </span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="export-format-btn export-jpg"
+                    onclick="exportPenjualanJPG()"
+                >
+                    <span class="export-format-icon">🖼️</span>
+                    <span>
+                        <strong>JPG</strong>
+                        <small>.jpg</small>
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- STATUS EXPORT -->
+        <!-- ===================================== -->
+
+        <div
+            id="exportStatusMessage"
+            class="export-status-message"
+            aria-live="polite"
+        ></div>
+
+
+    </div>
+
+</div>
+
+        <!-- ========================================= -->
+        <!-- PANEL LISTING -->
+        <!-- ========================================= -->
+
+        <div
+    id="tab-listing"
+    class="tab-page"
+    style="display:none;"
+>
+
+            <button
+    type="button"
+    onclick="kembaliKePenjualan()"
+>
+    ↩
+</button>
+
+<div style="
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:5px;
+">
+    <h2
+        id="judulHalamanListing"
+        style="margin:0;"
+    >
+        📋 Listing
+    </h2>
+
+    <button
+        type="button"
+        onclick="tampilkanFormListing()"
+        style="
+            padding:8px 14px;
+            font-size:13px;
+            border-radius:7px;
+        "
+    >
+        + TAMBAH LISTING
+    </button>
+</div>
+            <p id="subjudulHalamanListing">
+    Kelola Listing dan produk yang terdapat di dalamnya.
+</p>
+
+            <div id="isiPenjualanListing">
+
+    <!-- =============================== -->
+    <!-- FORM LISTING -->
+    <!-- =============================== -->
+
+    <div
+        id="formListing"
+        style="
+            display:none;
+            margin-top:15px;
+            padding:15px;
+            border:1px solid #ddd;
+            border-radius:8px;
+        "
+    >
+
+        <h3 id="judulFormListing">
+            Tambah Listing
+        </h3>
+
+
+        <label for="listingNama">
+            Nama Listing
+        </label>
+
+        <input
+            type="text"
+            id="listingNama"
+            placeholder="Contoh: Silet Cukur Hemat"
+        >
+
+        <hr style="margin:25px 0;">
+
+<div>
+    <h3 style="margin-bottom:8px;">
+        Produk dalam Listing
+    </h3>
+
+    <p style="color:#6b7280; margin-top:0;">
+        Tambahkan produk yang akan dimasukkan ke Listing ini.
+    </p>
+
+    <button
+        type="button"
+        onclick="tampilkanFormProdukListing()">
+        + TAMBAH PRODUK
+    </button>
+
+    <div
+        id="daftarProdukDraftListing"
+        style="margin-top:15px;">
+    </div>
+</div>
+
+
+        <label for="listingCatatan">
+            Catatan Listing
+        </label>
+
+        <textarea
+            id="listingCatatan"
+            rows="3"
+            placeholder="Catatan listing (opsional)"
+        ></textarea>
+
+
+        <button
+            type="button"
+            onclick="simpanListing()"
+        >
+            SIMPAN LISTING
+        </button>
+
+        <button
+            type="button"
+            onclick="batalListing()"
+        >
+            BATAL
+        </button>
+
+    </div>
+
+
+    <!-- =============================== -->
+    <!-- SEARCH -->
+    <!-- =============================== -->
+
+    <input
+        type="text"
+        id="cariListing"
+        placeholder="Cari nama listing..."
+        autocomplete="off"
+        style="margin-top:20px;"
+    >
+
+
+    <!-- =============================== -->
+    <!-- JUMLAH LISTING -->
+    <!-- =============================== -->
+
+    <div
+        id="infoJumlahListing"
+        style="
+            margin-top:15px;
+            margin-bottom:10px;
+            font-size:13px;
+            font-weight:600;
+        "
+    ></div>
+
+
+    <!-- =============================== -->
+    <!-- DAFTAR LISTING -->
+    <!-- =============================== -->
+
+    <div
+        id="daftarListing"
+        style="margin-top:15px;"
+    ></div>
+
+            </div>
+
+    <!-- =============================== -->
+    <!-- KELOLA PRODUK -->
+    <!-- =============================== -->
+
+    <div
+        id="panelKelolaListing"
+        style="
+            display:none;
+            margin-top:25px;
+            padding-top:20px;
+            border-top:1px solid #ddd;
+        "
+    >
+        <button
+    type="button"
+    onclick="tutupKelolaListing()"
+>
+    ↩ KEMBALI KE LISTING
+</button>
+
+        <h2 id="judulKelolaListing">
+            Kelola Produk Listing
+        </h2>
+
+        <p id="infoKelolaListing"></p>
+
+
+        <button
+            type="button"
+            onclick="tampilkanFormProdukListing()"
+        >
+            + TAMBAH PRODUK
+        </button>
+
+
+        <!-- FORM PRODUK -->
+
+        <div
+            id="formProdukListing"
+            style="
+                display:none;
+                margin-top:15px;
+                padding:15px;
+                border:1px solid #ddd;
+                border-radius:8px;
+            "
+        >
+
+            <h3 id="judulFormProdukListing">
+                Tambah Produk ke Listing
+            </h3>
+
+
+            <label for="searchProdukListing">
+    Cari Produk
+</label>
+
+<input
+    type="text"
+    id="searchProdukListing"
+    placeholder="Cari SKU atau nama produk..."
+    autocomplete="off"
+>
+
+<div
+    id="rekomendasiProdukListing"
+    style="
+    display:none;
+    border:1px solid #ddd;
+    border-radius:6px;
+    max-height:220px;
+    overflow-y:auto;
+    background:#fff;
+    margin-top:4px;
+    position:relative;
+    z-index:9999;
+"
+></div>
+
+<label for="hppListing">
+    HPP
+</label>
+
+<input
+    type="number"
+    id="hppListing"
+    readonly
+    placeholder="Otomatis dari Master Produk"
+>
+
+            <label for="hargaListing">
+                Harga Jual
+            </label>
+
+            <input
+                type="number"
+                id="hargaListing"
+                min="0"
+                placeholder="Contoh: 10000"
+            >
+
+
+            <label for="voucherListing">
+                Voucher Seller
+            </label>
+
+            <input
+                type="number"
+                id="voucherListing"
+                min="0"
+                value="0"
+                placeholder="0"
+            >
+
+
+            <label for="statusListingProduk">
+                Status
+            </label>
+
+            <select id="statusListingProduk">
+
+                <option value="Aktif">
+                    Aktif
+                </option>
+
+                <option value="Nonaktif">
+                    Nonaktif
+                </option>
+
+            </select>
+
+
+            <label for="catatanListingProduk">
+                Catatan
+            </label>
+
+            <textarea
+                id="catatanListingProduk"
+                rows="3"
+                placeholder="Catatan produk dalam listing (opsional)"
+            ></textarea>
+
+
+            <button
+                type="button"
+                onclick="simpanProdukListing()"
+            >
+                SIMPAN PRODUK
+            </button>
+
+            <button
+                type="button"
+                onclick="batalProdukListing()"
+            >
+                BATAL
+            </button>
+
+        </div>
+
+
+        <!-- DAFTAR PRODUK DALAM LISTING -->
+
+        <div
+            id="daftarProdukListing"
+            style="margin-top:20px;"
+        ></div>
+
+    </div>
+
+        </div>
+
+<!-- ================================================= -->
+<!-- IKLAN -->
+<!-- ================================================= -->
+
+<div
+    id="tab-iklan"
+    class="tab-page"
+    style="display:none;"
+>
+
+    <h1>
+        📢 Iklan
+    </h1>
+
+    <p class="subtitle">
+        Kalkulator dan evaluasi performa iklan
+    </p>
+
+
+    <!-- ================================================= -->
+    <!-- INPUT IKLAN -->
+    <!-- ================================================= -->
+
+    <section class="card iklan-kalkulator-card">
+
+        <h2>
+            Input Iklan
+        </h2>
+
+
+        <!-- NAMA PRODUK -->
+
+        <label for="iklanNamaProduk">
+            Nama Produk
+        </label>
+
+        <input
+            type="text"
+            id="iklanNamaProduk"
+            list="daftarProdukIklan"
+            placeholder="Cari nama produk..."
+            autocomplete="off"
+            oninput="ubahProdukIklan()"
+        >
+
+        <datalist id="daftarProdukIklan"></datalist>
+
+
+        <!-- LISTING -->
+
+        <label for="iklanListing">
+            Pilih Listing
+        </label>
+
+        <select
+            id="iklanListing"
+            onchange="ubahListingIklan()"
+        >
+
+            <option value="">
+                Tanpa Listing
+            </option>
+
+        </select>
+
+
+        <!-- HARGA JUAL -->
+
+        <label for="iklanHargaJual">
+            Harga Jual
+        </label>
+
+        <input
+            type="number"
+            id="iklanHargaJual"
+            min="0"
+            placeholder="Masukkan harga jual"
+        >
+
+
+        <!-- VOUCHER SELLER -->
+
+        <label for="iklanVoucherSeller">
+            Voucher Seller
+        </label>
+
+        <input
+            type="number"
+            id="iklanVoucherSeller"
+            value="0"
+            readonly
+        >
+
+
+        <!-- HPP -->
+
+        <label for="iklanHPP">
+            HPP
+        </label>
+
+        <input
+            type="number"
+            id="iklanHPP"
+            min="0"
+            placeholder="Otomatis dari Master Produk"
+        >
+
+
+        <!-- MODE TARGET ROAS -->
+
+        <label for="iklanModeRoas">
+            Mode Target ROAS
+        </label>
+
+        <select
+            id="iklanModeRoas"
+            onchange="ubahModeROASIklan()"
+        >
+
+            <option value="manual">
+                Target ROAS Manual
+            </option>
+
+            <option value="gmv_auto">
+                GMV Max Auto
+            </option>
+
+        </select>
+
+
+        <!-- TARGET ROAS -->
+
+        <label for="iklanTargetRoas">
+            Target ROAS Aplikasi
+        </label>
+
+        <input
+            type="number"
+            id="iklanTargetRoas"
+            min="0"
+            step="0.01"
+            placeholder="Contoh: 6"
+        >
+
+
+        <!-- ROAS AKTUAL -->
+
+        <label for="iklanRoasAktual">
+            ROAS Aktual Aplikasi
+        </label>
+
+        <input
+            type="number"
+            id="iklanRoasAktual"
+            min="0"
+            step="0.01"
+            placeholder="Contoh: 7.2"
+        >
+
+
+        <!-- AD SPEND -->
+
+        <label for="iklanAdSpend">
+            Ad Spend
+        </label>
+
+        <input
+            type="number"
+            id="iklanAdSpend"
+            min="0"
+            placeholder="Contoh: 100000"
+        >
+
+
+        <!-- BIAYA PROSES -->
+
+        <label for="iklanBiayaProses">
+            Biaya Proses
+        </label>
+
+        <input
+            type="number"
+            id="iklanBiayaProses"
+            min="0"
+            value="1250"
+        >
+
+
+        <!-- PACKING -->
+
+        <label for="iklanPacking">
+            Packing
+        </label>
+
+        <input
+            type="number"
+            id="iklanPacking"
+            min="0"
+            value="1000"
+        >
+
+
+        <!-- PAJAK IKLAN -->
+
+        <label for="iklanPajak">
+            Pajak Iklan (%)
+        </label>
+
+        <input
+            type="number"
+            id="iklanPajak"
+            min="0"
+            step="0.01"
+            value="11"
+        >
+
+
+        <!-- INFO BIAYA SHOPEE -->
+
+        <div
+            id="iklanInfoPotongan"
+            class="iklan-info-kecil"
+        >
+            Potongan Shopee: -
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <button
+            type="button"
+            onclick="hitungKalkulatorIklan()"
+            class="iklan-btn-hitung"
+        >
+            HITUNG
+        </button>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- HASIL -->
+    <!-- ================================================= -->
+
+    <section
+        class="card iklan-hasil-card"
+        id="iklanHasil"
+    >
+
+        <h2>
+            Hasil
+        </h2>
+
+
+        <h3>
+            Dasar Produk
+        </h3>
+
+
+        <div class="hasil-row">
+            <span>Harga Jual</span>
+            <strong id="hasilIklanHargaJual">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Voucher Seller</span>
+            <strong id="hasilIklanVoucher">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Harga Efektif</span>
+            <strong id="hasilIklanHargaEfektif">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>HPP</span>
+            <strong id="hasilIklanHPP">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Potongan Shopee</span>
+            <strong id="hasilIklanPotongan">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Biaya Proses</span>
+            <strong id="hasilIklanProses">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Packing</span>
+            <strong id="hasilIklanPacking">-</strong>
+        </div>
+
+
+        <h3>
+            BEP Iklan
+        </h3>
+
+
+        <div class="hasil-row">
+            <span>Profit Sebelum Iklan</span>
+            <strong id="hasilIklanProfitSebelum">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>BEP ROAS</span>
+            <strong id="hasilIklanBepRoas">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>BEP ROAS + Pajak</span>
+            <strong id="hasilIklanBepPajak">-</strong>
+        </div>
+
+
+        <h3>
+            Performa Iklan
+        </h3>
+
+
+        <div class="hasil-row">
+            <span>Target ROAS</span>
+            <strong id="hasilIklanTarget">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>ROAS Aktual</span>
+            <strong id="hasilIklanAktual">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Pencapaian Target</span>
+            <strong id="hasilIklanPencapaian">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Selisih dari BEP</span>
+            <strong id="hasilIklanSelisihBep">-</strong>
+        </div>
+
+
+        <h3>
+            Biaya Iklan
+        </h3>
+
+
+        <div class="hasil-row">
+            <span>Ad Spend</span>
+            <strong id="hasilIklanSpend">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Pajak</span>
+            <strong id="hasilIklanPajak">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Real Ad Spend</span>
+            <strong id="hasilIklanRealSpend">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>Estimasi Sales Iklan</span>
+            <strong id="hasilIklanSales">-</strong>
+        </div>
+
+        <div class="hasil-row">
+            <span>ROAS Riil Setelah Pajak</span>
+            <strong id="hasilIklanRoasPajak">-</strong>
+        </div>
+
+
+        <div
+            id="statusKalkulatorIklan"
+            class="iklan-status-hasil"
+        >
+        </div>
+
+    </section>
+
+</div>
+
+        <!-- ================================================= -->
+        <!-- PENGATURAN -->
+        <!-- ================================================= -->
+
+        <div
+            id="tab-pengaturan"
+            class="tab-page"
+        >
+
+            <section class="card">
+
+                <h2>⚙️ Pengaturan</h2>
+
+
+                <label>
+                    Potongan Shopee (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="settingPotonganShopee"
+                    step="0.01"
+                    readonly
+                >
+
+
+                <label>
+                    Biaya Proses
+                </label>
+
+                <input
+                    type="number"
+                    id="settingBiayaProses"
+                    readonly
+                >
+
+                <label>
+    Packing
+</label>
+
+<input
+    type="number"
+    id="settingPacking"
+    readonly
+>
+
+
+                <label>
+                    Risk Reserve (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="settingRiskReserve"
+                    step="0.01"
+                    readonly
+                >
+
+                <div
+                    style="
+                        margin-top:20px;
+                        display:flex;
+                        gap:10px;
+                    "
+                >
+
+                    <button
+                        type="button"
+                        id="btnEditPengaturan"
+                        onclick="editPengaturan()"
+                    >
+                        EDIT
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="btnSimpanPengaturan"
+                        onclick="simpanPengaturan()"
+                        style="display:none;"
+                    >
+                        SIMPAN
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- KALKULATOR -->
+        <!-- ================================================= -->
+
+        <div
+            id="tab-kalkulator"
+            class="tab-page"
+        >
+
+
+            <!-- ============================================= -->
+            <!-- JUDUL -->
+            <!-- ============================================= -->
+
+            <h1>
+                Kalkulator Shopee
+            </h1>
+
+
+            <p class="subtitle">
+                Kalkulator Harga, Profit & ROAS
+            </p>
+
+
+            <!-- ============================================= -->
+            <!-- INPUT -->
+            <!-- ============================================= -->
+
+            <section class="card">
+
+                <h2>Input</h2>
+
+
+                <!-- PRODUK -->
+
+                <label for="produk">
+                    Cari Produk
+                </label>
+
+                <input
+                    type="text"
+                    id="produk"
+                    list="daftarProduk"
+                    oninput="pilihProduk()"
+                    placeholder="Cari SKU atau nama produk"
+                    autocomplete="off"
+                >
+
+                <datalist
+                    id="daftarProduk"
+                ></datalist>
+
+
+                <!-- HPP PRODUK -->
+
+                <label for="hppProduk">
+                    HPP Produk
+                </label>
+
+                <input
+                    type="text"
+                    id="hppProduk"
+                    value="Rp0"
+                    readonly
+                >
+
+
+                <!-- UNIT PACKING -->
+
+                <label for="unitPacking">
+                    Unit Packing
+                </label>
+
+                <input
+                    type="text"
+                    id="unitPacking"
+                    value="1"
+                    readonly
+                >
+
+
+                <!-- HARGA ETALASE -->
+
+                <label for="hargaEtalase">
+                    Harga Etalase
+                </label>
+
+                <input
+                    type="number"
+                    id="hargaEtalase"
+                    placeholder="Contoh: 105000"
+                >
+
+
+                <!-- VOUCHER -->
+
+                <label for="voucher">
+                    Voucher Seller
+                </label>
+
+                <input
+                    type="number"
+                    id="voucher"
+                    placeholder="Contoh: 5000"
+                >
+
+
+                <!-- INDIKATOR HPP -->
+
+                <div
+                    id="indikatorHPP"
+                    style="
+                        font-size:12px;
+                        margin-top:6px;
+                        margin-bottom:10px;
+                    "
+                ></div>
+
+
+                <!-- ========================================= -->
+                <!-- PANEL KELOLA HPP -->
+                <!-- ========================================= -->
+
+                <div
+                    id="kelolaHPP"
+                    style="
+                        display:none;
+                        margin-top:15px;
+                        padding:12px;
+                        border:1px solid #ddd;
+                        border-radius:8px;
+                    "
+                >
+
+                    <h3 style="margin-top:0;">
+                        Kelola HPP
+                    </h3>
+
+
+                    <input
+                        type="text"
+                        id="cariHPP"
+                        placeholder="Cari SKU atau nama produk..."
+                        autocomplete="off"
+                    >
+
+
+                    <div
+                        style="
+                            display:flex;
+                            gap:8px;
+                            margin-top:10px;
+                            margin-bottom:10px;
+                        "
+                    >
+
+                        <button
+                            type="button"
+                            onclick="exportHPP()"
+                            style="flex:1;"
+                        >
+                            EXPORT HPP
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="importHPP()"
+                            style="flex:1;"
+                        >
+                            IMPORT HPP
+                        </button>
+
+
+                        <input
+                            type="file"
+                            id="fileImportHPP"
+                            accept=".json"
+                            style="display:none;"
+                            onchange="prosesImportHPP(event)"
+                        >
+
+                    </div>
+
+
+                    <div
+                        id="daftarHPP"
+                        style="
+                            margin-top:10px;
+                        "
+                    ></div>
+
+                </div>
+
+
+                <!-- TARGET PROFIT -->
+
+                <label for="targetProfit">
+                    Target Profit (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="targetProfit"
+                    step="0.01"
+                >
+
+
+                <!-- EFEKTIVITAS IKLAN -->
+
+                <label for="efektivitasIklan">
+                    Efektivitas Iklan (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="efektivitasIklan"
+                    step="0.01"
+                >
+
+
+                <!-- ROAS ACUAN -->
+
+                <label for="roasAcuan">
+                    ROAS Aktual Acuan
+                </label>
+
+                <input
+                    type="number"
+                    id="roasAcuan"
+                    step="0.01"
+                >
+
+
+                <!-- ROAS SIMULASI -->
+
+                <label for="roas">
+                    ROAS Simulasi
+                </label>
+
+                <input
+                    type="number"
+                    id="roas"
+                    step="0.01"
+                    placeholder="Contoh: 10"
+                >
+
+
+                <!-- HITUNG -->
+
+                <button
+                    type="button"
+                    onclick="hitung()"
+                >
+                    HITUNG
+                </button>
+
+            </section>
+
+
+            <!-- ============================================= -->
+            <!-- HASIL -->
+            <!-- ============================================= -->
+
+            <section class="card">
+
+                <h2>
+                    Hasil
+                </h2>
+
+
+                <!-- HARGA EFEKTIF -->
+
+                <div class="hasil-row">
+
+                    <span>
+                        Harga Efektif
+                    </span>
+
+                    <strong id="hargaEfektif">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <!-- ========================================= -->
+                <!-- PROFIT & ROAS -->
+                <!-- ========================================= -->
+
+                <h2 style="margin-top:30px;">
+                    Profit & ROAS
+                </h2>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Profit Sebelum Iklan
+                    </span>
+
+                    <strong id="profitSebelumIklan">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        BEP ROAS
+                    </span>
+
+                    <strong id="bepRoas">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Profit Aktual
+                    </span>
+
+                    <strong id="profitAktual">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        ROAS Target Profit
+                    </span>
+
+                    <strong id="roasTargetProfit">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        ROAS Target Aplikasi
+                    </span>
+
+                    <strong id="roasTargetAplikasi">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Margin Profit Aktual
+                    </span>
+
+                    <strong id="marginAktual">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Status Profit
+                    </span>
+
+                    <strong id="statusProfit">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- ========================================= -->
+                <!-- BREAKDOWN BIAYA -->
+                <!-- ========================================= -->
+
+                <h2 style="margin-top:30px;">
+                    Breakdown Biaya
+                </h2>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        HPP
+                    </span>
+
+                    <strong id="breakdownHPP">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Potongan Shopee
+                    </span>
+
+                    <strong id="breakdownShopee">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Biaya Proses
+                    </span>
+
+                    <strong id="breakdownProses">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Packing
+                    </span>
+
+                    <strong id="breakdownPacking">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Risk Reserve
+                    </span>
+
+                    <strong id="breakdownRiskReserve">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Biaya Iklan
+                    </span>
+
+                    <strong id="breakdownIklan">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Total Biaya
+                    </span>
+
+                    <strong id="breakdownTotalBiaya">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Profit Bersih
+                    </span>
+
+                    <strong id="breakdownProfitBersih">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <!-- ========================================= -->
+                <!-- MARGIN -->
+                <!-- ========================================= -->
+
+                <h2 style="margin-top:30px;">
+                    Margin
+                </h2>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Profit / Unit
+                    </span>
+
+                    <strong id="profitPerUnit">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Margin Profit
+                    </span>
+
+                    <strong id="marginProfit">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- ========================================= -->
+                <!-- ANALISIS HARGA -->
+                <!-- ========================================= -->
+
+                <h2 style="margin-top:30px;">
+                    Analisis Harga
+                </h2>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Harga Target
+                    </span>
+
+                    <strong id="hargaTarget">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Harga Target Bulat
+                    </span>
+
+                    <strong id="hargaTargetBulat">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Harga Rekomendasi
+                    </span>
+
+                    <strong id="hargaRekomendasi">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Harga Pasar
+                    </span>
+
+                    <input
+                        type="number"
+                        id="hargaPasar"
+                        placeholder="Opsional"
+                    >
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Selisih dengan Pasar
+                    </span>
+
+                    <strong id="selisihHarga">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="hasil-row">
+
+                    <span>
+                        Posisi Harga
+                    </span>
+
+                    <strong id="statusHarga">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- ========================================= -->
+                <!-- REKOMENDASI -->
+                <!-- ========================================= -->
+
+                <h2 style="margin-top:30px;">
+                    Rekomendasi
+                </h2>
+
+
+                <div
+                    id="rekomendasiKalkulator"
+                    style="
+                        padding:12px;
+                        border:1px solid #ddd;
+                        border-radius:8px;
+                    "
+                >
+                    -
+                </div>
+
+
+                <!-- ========================================= -->
+                <!-- SIMULASI HARGA -->
+                <!-- ========================================= -->
+
+                <h2 style="margin-top:30px;">
+                    Simulasi Harga
+                </h2>
+
+
+                <div
+                    id="simulasiHarga"
+                ></div>
+
+
+                <!-- ========================================= -->
+                <!-- SIMULASI VOUCHER -->
+                <!-- ========================================= -->
+
+                <h2 style="margin-top:30px;">
+                    Simulasi Voucher
+                </h2>
+
+
+                <div
+                    id="simulasiVoucher"
+                ></div>
+
+
+                <!-- ========================================= -->
+                <!-- SIMULASI ROAS -->
+                <!-- ========================================= -->
+
+                <h2 style="margin-top:30px;">
+                    Simulasi ROAS
+                </h2>
+
+
+                <div
+                    id="simulasiRoas"
+                ></div>
+
+            </section>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- JAVASCRIPT -->
+<!-- ===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase-config.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script src="app.js"></script>
+
+
+<!-- ===================================================== -->
+<!-- SERVICE WORKER -->
+<!-- ===================================================== -->
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+            .register("./service-worker.js")
+
+            .then(() => {
+
+                console.log(
+                    "Service Worker aktif"
+                );
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    "Service Worker gagal:",
+                    error
+                );
+
+            });
+
+    });
+
+}
+
+</script>
+
+<style>
+
+/* =========================================================
+   PENJUALAN — TOMBOL MINIMALIS
+   ========================================================= */
+
+/* Tombol KEMBALI */
+#menuPenjualanListing > button:first-child,
+#menuPenjualanOrder > button:first-child,
+#menuPenjualanRekap > button:first-child,
+#menuPenjualanExport > button:first-child {
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    padding: 9px 16px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    margin-bottom: 14px !important;
+
+}
+
+
+/* Semua tombol di daftar Listing */
+#daftarListing button {
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 15px !important;
+
+    margin: 6px 6px 0 0 !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+}
+
+
+/* Kelola Produk */
+#daftarListing > div > button:nth-of-type(1) {
+
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+
+}
+
+
+/* Edit */
+#daftarListing > div > button:nth-of-type(2) {
+
+    background: #f3f4f6 !important;
+    color: #111827 !important;
+
+}
+
+
+/* Hapus */
+#daftarListing > div > button:nth-of-type(3) {
+
+    background: #fff1f2 !important;
+    color: #dc2626 !important;
+
+}
+
+
+/* =========================================================
+   FORM LISTING
+   ========================================================= */
+
+#formListing button,
+#formProdukListing button {
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 16px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+}
+
+
+/* =========================================================
+   TOMBOL TAMBAH
+   ========================================================= */
+
+#isiPenjualanListing > div > button {
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    padding: 10px 17px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #daftarListing button {
+
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+
+    }
+
+}
+
+/* Card lama di dalam panel tidak lagi membentuk latar putih kedua. */
+#tab-penjualan > section.card,
+#tab-order > section.card,
+#tab-rekap > section.card,
+#tab-export > section.card {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Order, Rekap, dan Export tidak memerlukan kotak pembungkus kedua.
+   Dengan wrapper visual dihapus, tombol Home dan kembali berada satu baris. */
+#appContent .tab-page#tab-order > section.card,
+#appContent .tab-page#tab-rekap > section.card,
+#appContent .tab-page#tab-export > section.card {
+    display: contents !important;
+}
+
+/* Menu Penjualan juga hanya memakai panel utama, tanpa card putih kedua. */
+#appContent .tab-page#tab-penjualan > section.card {
+    display: contents !important;
+}
+
+/* Tombol kembali Order, Rekap, dan Export identik dengan Listing. */
+#tab-order > section > button[onclick="kembaliKePenjualan()"],
+#tab-rekap > section > button[onclick="kembaliKePenjualan()"],
+#tab-export > section > button[onclick="kembaliKePenjualan()"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 46px !important;
+    min-width: 46px !important;
+    max-width: 46px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    margin: 0 8px 20px 0 !important;
+    padding: 0 !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .06) !important;
+    font-size: 20px !important;
+}
+
+/* Empat menu Penjualan mengikuti ukuran kartu menu Home, bukan kartu besar. */
+#menuPenjualan {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
+}
+
+#menuPenjualan > button {
+    min-height: 94px !important;
+    height: 94px !important;
+    padding: 14px !important;
+    border-radius: 12px !important;
+}
+
+#menuPenjualan > button > span:first-child {
+    flex-basis: 42px !important;
+    width: 42px !important;
+    height: 42px !important;
+    margin-right: 12px !important;
+    border-radius: 10px !important;
+    font-size: 22px !important;
+}
+
+#menuPenjualan > button > strong {
+    font-size: 14px !important;
+}
+
+@media (max-width: 760px) {
+    #tab-penjualan,
+    #tab-order,
+    #tab-rekap,
+    #tab-export {
+        padding: 18px !important;
+    }
+
+    #menuPenjualan {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 520px) {
+    #menuPenjualan {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Hasil pencarian produk Order: satu daftar rapi, selebar input pencarian. */
+#appContent .order-search-results {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+#appContent .order-search-results .order-search-result {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 62px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    border: 1px solid #e3e7ee !important;
+    border-bottom: 0 !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    text-align: left !important;
+    box-shadow: none !important;
+}
+
+#appContent .order-search-results .order-search-result:first-child {
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+
+#appContent .order-search-results .order-search-result:last-child {
+    border-bottom: 1px solid #e3e7ee !important;
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+}
+
+#appContent .order-search-results .order-search-result strong {
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+#appContent .order-search-results .order-search-result small {
+    margin-top: 3px;
+    color: #6b7280;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+#appContent .order-search-results .order-search-result:hover {
+    transform: none !important;
+    border-color: #c7d2fe !important;
+    background: #f5f7ff !important;
+}
+</style>
+
+</body>
+
+</html>
